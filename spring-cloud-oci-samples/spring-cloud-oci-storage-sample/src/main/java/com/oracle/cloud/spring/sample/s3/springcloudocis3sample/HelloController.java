@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("demoapp/api")
 @Tag(name="Hello World APIs")
 public class HelloController {
 

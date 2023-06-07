@@ -31,7 +31,7 @@ import static org.springframework.http.MediaType.IMAGE_JPEG;
 import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
 @RestController
-@RequestMapping("/api/image")
+@RequestMapping("demoapp/api/image")
 @Tag(name = "Image Object APIs")
 public class ImageController {
 
@@ -43,9 +43,9 @@ public class ImageController {
                                       @Parameter(required = true) @PathVariable String objectName,
                                       @Parameter(required = false, example = "image/jpeg") @RequestParam(required = false) String mediaType) {
         MediaType mt = APPLICATION_OCTET_STREAM;
-        if (mediaType != null && MediaType.valueOf(mediaType) != null) {
-            mt = MediaType.valueOf(mediaType);
-        }
+        //if (mediaType != null && MediaType.valueOf(mediaType) != null) {
+          //  mt = MediaType.valueOf(mediaType);
+        //}
 
         return ResponseEntity.ok()
                 .contentType(mt)
@@ -55,9 +55,9 @@ public class ImageController {
     @PostMapping(value = "/{bucketName}", consumes = MULTIPART_FORM_DATA_VALUE)
     ResponseEntity<?> upload(@Parameter(required = true) @RequestPart(required = true, name = "file") MultipartFile multipartFile,
                              @Parameter(required = true, example = "new-bucket") @PathVariable String bucketName) throws IOException {
-        if (!IMAGE_JPEG.toString().equals(multipartFile.getContentType())) {
-            return ResponseEntity.badRequest().body("Invalid image file");
-        }
+        //if (!IMAGE_JPEG.toString().equals(multipartFile.getContentType())) {
+          //  return ResponseEntity.badRequest().body("Invalid image file");
+       // }
 
         try (InputStream is = multipartFile.getInputStream()) {
             storage.upload(bucketName, multipartFile.getOriginalFilename(), is,

@@ -6,8 +6,8 @@
 package com.oracle.cloud.spring.autoconfigure.core;
 
 import com.oracle.bmc.auth.AuthenticationDetailsProvider;
-import com.oracle.cloud.spring.compartment.CompartmentProvider;
-import com.oracle.cloud.spring.compartment.StaticCompartmentProvider;
+import com.oracle.cloud.spring.core.compartment.CompartmentProvider;
+import com.oracle.cloud.spring.core.compartment.StaticCompartmentProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

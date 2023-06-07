@@ -21,10 +21,13 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
         </license>
     </licenses>
     <modules>
+        <module>spring-cloud-oci-core</module>
         <module>spring-cloud-oci-autoconfigure</module>
         <module>spring-cloud-oci-samples</module>
         <module>spring-cloud-oci-starters</module>
         <module>spring-cloud-oci-storage</module>
+        <module>spring-cloud-oci-notification</module>
+        <module>spring-cloud-oci-logging</module>
         <module>docs</module>
     </modules>
     <properties>

@@ -8,7 +8,7 @@ package com.oracle.cloud.spring.sample.s3.springcloudocis3sample;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {"com.oracle.cloud.sdk.spring"})
+@SpringBootApplication
 public class SpringCloudOciStorageSampleApplication {
 
     public static void main(String[] args) {

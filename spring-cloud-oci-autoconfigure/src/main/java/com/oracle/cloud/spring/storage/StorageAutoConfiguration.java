@@ -9,7 +9,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oracle.bmc.auth.BasicAuthenticationDetailsProvider;
 import com.oracle.bmc.auth.RegionProvider;
 import com.oracle.bmc.objectstorage.ObjectStorageClient;
-import com.oracle.cloud.spring.compartment.CompartmentProvider;
+import com.oracle.cloud.spring.core.compartment.CompartmentProvider;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -22,7 +23,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 @ConditionalOnClass({OracleStorageProtocolResolver.class, ObjectStorageClient.class})
-@Configuration(proxyBeanMethods = false)
+@AutoConfiguration
 @Import(OracleStorageProtocolResolver.class)
 @ConditionalOnProperty(name = "spring.cloud.oci.storage.enabled", havingValue = "true", matchIfMissing = true)
 public class StorageAutoConfiguration {

@@ -13,7 +13,7 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
         <version>1.0-SNAPSHOT</version>
 <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
-    <groupId>com.oracle.cloud.sdk.spring.sample.email</groupId>
+    <groupId>com.oracle.cloud.spring.sample.email</groupId>
     <artifactId>spring-cloud-oci-email-sample</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>spring-cloud-oci-email-sample</name>
