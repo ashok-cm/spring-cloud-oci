@@ -9,7 +9,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-cloud-oci-core</artifactId>
-
+    <licenses>
+        <license>
+            <name>The Universal Permissive License (UPL), Version 1.0</name>
+            <url>https://oss.oracle.com/licenses/upl/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
