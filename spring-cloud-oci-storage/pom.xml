@@ -15,7 +15,6 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-cloud-oci-storage</artifactId>
-    <packaging>jar</packaging>
     <licenses>
         <license>
             <name>The Universal Permissive License (UPL), Version 1.0</name>
