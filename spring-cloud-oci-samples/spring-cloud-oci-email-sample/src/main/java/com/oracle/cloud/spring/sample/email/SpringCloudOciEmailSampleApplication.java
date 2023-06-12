@@ -8,7 +8,7 @@ package com.oracle.cloud.spring.sample.email;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {"com.oracle.cloud.sdk.spring"})
+@SpringBootApplication
 public class SpringCloudOciEmailSampleApplication {
 
     public static void main(String[] args) {
