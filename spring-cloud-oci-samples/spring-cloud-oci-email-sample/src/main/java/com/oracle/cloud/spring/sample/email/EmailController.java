@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/email")
+@RequestMapping("demoapp/api/email")
 @Tag(name = "Email Service APIs")
 public class EmailController {
 

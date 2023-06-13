@@ -3,7 +3,7 @@
  ** Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
  */
 
-package com.oracle.cloud.spring.region;
+package com.oracle.cloud.spring.core.region;
 
 import com.oracle.bmc.Region;
 import com.oracle.bmc.auth.RegionProvider;

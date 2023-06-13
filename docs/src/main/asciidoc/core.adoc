@@ -109,7 +109,7 @@ spring.cloud.oci.config.type = RESOURCE_PRINCIPAL
 OCI services are available in different regions. Based on the custom requirements, the user can host the application on different OCI regions. The below configuration allows to set specific region for the entire application.
 
 ----
-spring.cloud.oci.region.staticRegion = US_ASHBURN_1
+spring.cloud.oci.region.staticRegion = us-ashburn-1
 ----
 
 === Compartment Configuration

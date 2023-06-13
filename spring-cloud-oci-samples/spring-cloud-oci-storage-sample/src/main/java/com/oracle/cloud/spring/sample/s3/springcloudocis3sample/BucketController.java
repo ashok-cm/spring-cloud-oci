@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/bucket")
+@RequestMapping("demoapp/api/bucket")
 @Tag(name = "Storage Bucket APIs")
 public class BucketController {
 

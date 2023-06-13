@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 @RestController
-@RequestMapping("/api/object")
+@RequestMapping("demoapp/api/object")
 @Tag(name="Storage Object APIs")
 public class ObjectController {
 

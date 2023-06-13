@@ -12,15 +12,15 @@ import com.oracle.bmc.auth.InstancePrincipalsAuthenticationDetailsProvider;
 import com.oracle.bmc.auth.ResourcePrincipalAuthenticationDetailsProvider;
 import com.oracle.bmc.auth.SimpleAuthenticationDetailsProvider;
 import com.oracle.bmc.auth.SimplePrivateKeySupplier;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import java.io.IOException;
 
-@Configuration(proxyBeanMethods = false)
+@AutoConfiguration
 @ConditionalOnClass({AuthenticationDetailsProvider.class})
 @EnableConfigurationProperties(CredentialsProperties.class)
 public class CredentialsProviderAutoConfiguration {
