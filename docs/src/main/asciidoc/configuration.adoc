@@ -3,4 +3,4 @@
 
 == Configuration properties
 
-To see the list of all GCP related configuration properties please check link:appendix.html[the Appendix page].
+To see the list of all OCI related configuration properties please check link:appendix.html[the Appendix page].

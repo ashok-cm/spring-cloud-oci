@@ -25,43 +25,6 @@ dependencies {
 }
 ----
 
-=== Configuration
-
-The following options may be configured with Spring Cloud core.
-
-|===========================================================================
-| Name | Description | Required | Default value
-| `spring.cloud.gcp.core.enabled` | Enables or disables GCP core auto configuration | No | `true`
-|===========================================================================
-
-=== Project ID
-
-`GcpProjectIdProvider` is a functional interface that returns a GCP project ID string.
-
-[source,java]
-----
-public interface GcpProjectIdProvider {
-	String getProjectId();
-}
-----
-
-The Spring Cloud GCP starter auto-configures a `GcpProjectIdProvider`.
-If a `spring.cloud.gcp.project-id` property is specified, the provided `GcpProjectIdProvider` returns that property value.
-
-[source,java]
-----
-spring.cloud.gcp.project-id=my-gcp-project-id
-----
-
-Otherwise, the project ID is discovered based on an
-https://cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.ServiceOptions#com_google_cloud_ServiceOptions_getDefaultProjectId__[ordered list of rules]:
-
-1. The project ID specified by the `GOOGLE_CLOUD_PROJECT` environment variable
-2. The Google App Engine project ID
-3. The project ID specified in the JSON credentials file pointed by the `GOOGLE_APPLICATION_CREDENTIALS` environment variable
-4. The Google Cloud SDK project ID
-5. The Google Compute Engine project ID, from the Google Compute Engine Metadata Server
-
 === Authentication Configuration
 
 Spring Cloud OCI allows you to authenticate with OCI with various following available options.
