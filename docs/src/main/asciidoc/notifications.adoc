@@ -1,7 +1,7 @@
 // Copyright (c) 2023, Oracle and/or its affiliates.
 // Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
 
-[#cloud-storage]
+[#cloud-notifications]
 == Oracle Cloud Notifications
 
 https://www.oracle.com/in/devops/notifications/[Oracle Cloud Infrastructure (OCI) Notifications] is a highly available, low-latency publish/subscribe (pub/sub) service that sends alerts and messages to Oracle Cloud Functions, email, SMS, and message delivery partners, including Slack, PagerDuty and custom HTTPS endpoint. Spring Cloud module for Oracle Cloud Notifications allows to create a Topic and create and publish messages to multiple subsctiption types like Oracle Cloud Functions, email, SMS, Slack, PagerDuty and custom HTTPS endpoint.

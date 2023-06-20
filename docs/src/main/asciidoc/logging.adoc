@@ -1,7 +1,7 @@
 // Copyright (c) 2023, Oracle and/or its affiliates.
 // Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
 
-[#cloud-storage]
+[#cloud-logging]
 == Oracle Cloud Logging
 
 https://docs.oracle.com/en-us/iaas/Content/Logging/home.htm/[Oracle Cloud Infrastructure (OCI) Logging] service is a highly scalable and fully managed single pane of glass for all the logs in your tenancy. Logging provides access to logs from Oracle Cloud Infrastructure resources. These logs include critical diagnostic information that describes how resources are performing and being accessed. Use Logging to enable, manage, and search Audit, Service and Custom logs. The Spring Cloud module for OCI Logging allows ingesting logs associated with a logId

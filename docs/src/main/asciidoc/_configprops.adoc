@@ -6,7 +6,7 @@
 
 |spring.cloud.oci.config.profile | `DEFAULT` |  
 |spring.cloud.oci.config.file |  |  
-+|spring.cloud.oci.config.type | `FILE` | Credentials Config type
+|spring.cloud.oci.config.type |  |
 |spring.cloud.oci.config.userId |  |  
 |spring.cloud.oci.config.tenantId |  |  
 |spring.cloud.oci.config.fingerprint |  |  
@@ -14,6 +14,8 @@
 |spring.cloud.oci.config.passPhrase |  |  
 |spring.cloud.oci.region.staticRegion |  |  
 |spring.cloud.oci.compartment.staticCompartment |  |  
-|spring.cloud.oci.storage.enabled | `true` |  
+|spring.cloud.oci.storage.enabled | `true` |
+|spring.cloud.oci.notification.enabled | `true` |
+|spring.cloud.oci.logging.enabled | `true` |
 
 |===
