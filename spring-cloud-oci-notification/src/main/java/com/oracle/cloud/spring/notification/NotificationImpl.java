@@ -15,6 +15,9 @@ import com.oracle.bmc.ons.requests.*;
 import com.oracle.bmc.ons.responses.*;
 import com.oracle.cloud.spring.core.util.OCIObjectMapper;
 
+/**
+ * Implementation for the OCI Notification module
+ */
 public class NotificationImpl implements Notification {
     NotificationDataPlane notificationDataPlane;
     NotificationControlPlane notificationControlPlane;
@@ -24,6 +27,13 @@ public class NotificationImpl implements Notification {
         this.notificationControlPlane = notificationControlPlane;
     }
 
+    /**
+     * Publish message to a Topic
+     * @param topicId - OCID of the topic
+     * @param title - Message title
+     * @param message - Message content
+     * @return
+     */
     @Override
     public PublishMessageResponse publishMessage(String topicId, String title, String message) {
 
@@ -41,6 +51,14 @@ public class NotificationImpl implements Notification {
         return response;
     }
 
+    /**
+     * Create a Notification subscription in a Topic
+     * @param compartmentId - Compartment OCID where the Subscription needs to be created
+     * @param topicId - Topic OCID where the Subscription needs to be created
+     * @param protocol - Subscription type. Ex: EMAIL
+     * @param endpoint - Subscription endpoint. Ex: Email ID in case of EMAIL as protocol
+     * @return
+     */
     @Override
     public CreateSubscriptionResponse createSubscription(String compartmentId, String topicId, String protocol, String endpoint) {
         CreateSubscriptionDetails details = CreateSubscriptionDetails.builder().compartmentId(compartmentId).topicId(topicId).protocol(protocol).endpoint(endpoint).build();
@@ -50,6 +68,11 @@ public class NotificationImpl implements Notification {
         return response;
     }
 
+    /**
+     * Get the Subscription Resource JSON as a String
+     * @param subscriptionId - OCID of the subscription
+     * @return
+     */
     @Override
     public String getSubscription(String subscriptionId) {
         GetSubscriptionRequest request = GetSubscriptionRequest.builder().subscriptionId(subscriptionId).build();
@@ -59,6 +82,12 @@ public class NotificationImpl implements Notification {
         return jsonObjectString;
     }
 
+    /**
+     * List subscriptions in a Topic as a JSON String
+     * @param topicId - Topic OCID where to list the Subscriptions
+     * @param compartmentId - Compartment OCID where the topic is present
+     * @return
+     */
     @Override
     public String listSubscriptions(String topicId, String compartmentId) {
         ListSubscriptionsRequest request = ListSubscriptionsRequest.builder().topicId(topicId).
@@ -68,6 +97,13 @@ public class NotificationImpl implements Notification {
         String jsonArrayString = OCIObjectMapper.toPrintableString(response.getItems());
         return jsonArrayString;
     }
+
+    /**
+     * Create a OCI Notification Topic
+     * @param topicName - Name of the Topic to be created
+     * @param compartmentId - Compartment OCID where the Topic needs to be created
+     * @return
+     */
     @Override
     public CreateTopicResponse createTopic(String topicName, String compartmentId) {
         CreateTopicDetails details = CreateTopicDetails.builder().name(topicName).compartmentId(compartmentId).build();

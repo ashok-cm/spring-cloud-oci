@@ -7,7 +7,9 @@ package com.oracle.cloud.spring.logging;
 
 import com.oracle.bmc.loggingingestion.responses.PutLogsResponse;
 
-
+/**
+ * Interface for defining OCI logging module
+ */
 public interface LoggingSvc {
     PutLogsResponse putLogs(String logText);
 }

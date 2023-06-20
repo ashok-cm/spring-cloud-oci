@@ -9,6 +9,9 @@ import com.oracle.bmc.Region;
 import com.oracle.bmc.auth.RegionProvider;
 import org.springframework.util.Assert;
 
+/**
+ * Provider to wrap Region details like name for Region configuration
+ */
 public class StaticRegionProvider implements RegionProvider {
 
     private final Region region;

@@ -7,6 +7,9 @@ package com.oracle.cloud.spring.core.compartment;
 
 import org.springframework.util.Assert;
 
+/**
+ * Provider to wrap Compartment details like OCID for Compartment configuration
+ */
 public class StaticCompartmentProvider implements CompartmentProvider {
 
     private final String compartmentOCID;

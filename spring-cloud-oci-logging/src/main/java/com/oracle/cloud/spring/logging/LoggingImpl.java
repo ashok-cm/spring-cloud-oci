@@ -17,6 +17,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * Implementation for the OCI Logging module
+ */
 public class LoggingImpl implements LoggingSvc {
 
     private final String logSpecVersion = "1.0";
@@ -32,6 +35,11 @@ public class LoggingImpl implements LoggingSvc {
         this.logId = logId;
     }
 
+    /**
+     * Ingest logs associated with a Log OCID
+     * @param logText - Content of the log to be ingested
+     * @return
+     */
     public PutLogsResponse putLogs(String logText) {
 
         PutLogsDetails putLogsDetails = PutLogsDetails.builder()

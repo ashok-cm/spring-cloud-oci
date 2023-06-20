@@ -5,6 +5,9 @@
 
 package com.oracle.cloud.spring.core.compartment;
 
+/**
+ * Interface for to provide Compartment details like OCID for Compartment configuration
+ */
 public interface CompartmentProvider {
 
     String getCompartmentOCID();

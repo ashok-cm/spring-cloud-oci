@@ -16,6 +16,9 @@ import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.TimeZone;
 
+/**
+ * ObjectMapper to convert an Object to a JSON String
+ */
 public class OCIObjectMapper {
     private static String DEFAULT_FILTER = "explicitlySetFilter";
     private static String DEFAULT_TIME_ZONE = "GMT";

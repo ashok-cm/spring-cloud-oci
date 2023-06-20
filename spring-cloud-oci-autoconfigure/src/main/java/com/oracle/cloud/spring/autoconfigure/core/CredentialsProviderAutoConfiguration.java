@@ -20,6 +20,9 @@ import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
 
+/**
+ * Auto-configuration for initializing the OCI Credentials provider type
+ */
 @AutoConfiguration
 @ConditionalOnClass({AuthenticationDetailsProvider.class})
 @EnableConfigurationProperties(CredentialsProperties.class)
@@ -32,6 +35,11 @@ public class CredentialsProviderAutoConfiguration {
         this.properties = properties;
     }
 
+    /**
+     * Creates a Authentication provider based on {@link CredentialsProperties.ConfigType} type
+     * @return
+     * @throws IOException
+     */
     @Bean
     @ConditionalOnMissingBean
     public BasicAuthenticationDetailsProvider credentialsProvider() throws IOException {

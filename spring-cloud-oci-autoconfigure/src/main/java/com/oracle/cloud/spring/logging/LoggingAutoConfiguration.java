@@ -16,7 +16,15 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
-
+/**
+ * Auto-configuration for initializing the OCI LoggingSvc component.
+ *  Depends on {@link com.oracle.cloud.spring.autoconfigure.core.CompartmentProviderAutoConfiguration},
+ *  {@link com.oracle.cloud.spring.autoconfigure.core.CredentialsProviderAutoConfiguration} and
+ *  {@link com.oracle.cloud.spring.autoconfigure.core.RegionProviderAutoConfiguration}
+ *  for loading the Authentication configuration
+ *
+ * @see com.oracle.cloud.spring.logging.LoggingSvc
+ */
 @AutoConfiguration
 @ConditionalOnClass({LoggingSvc.class})
 @EnableConfigurationProperties(LoggingProperties.class)

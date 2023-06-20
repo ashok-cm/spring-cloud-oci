@@ -6,7 +6,7 @@
 
 |spring.cloud.oci.config.profile | `DEFAULT` |  
 |spring.cloud.oci.config.file |  |  
-|spring.cloud.oci.config.type |  |  
++|spring.cloud.oci.config.type | `FILE` | Credentials Config type
 |spring.cloud.oci.config.userId |  |  
 |spring.cloud.oci.config.tenantId |  |  
 |spring.cloud.oci.config.fingerprint |  |  

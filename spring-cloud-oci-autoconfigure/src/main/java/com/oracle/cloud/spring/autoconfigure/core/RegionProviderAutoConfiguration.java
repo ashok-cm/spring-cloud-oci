@@ -14,6 +14,9 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
+/**
+ * Auto-configuration for initializing the OCI Region
+ */
 @AutoConfiguration
 @ConditionalOnClass({AuthenticationDetailsProvider.class})
 @EnableConfigurationProperties(RegionProperties.class)
