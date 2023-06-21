@@ -9,6 +9,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
+/**
+ * Auto-configure settings related to a Compartment
+ */
 @ConfigurationProperties(prefix = CompartmentProperties.PREFIX)
 public class CompartmentProperties {
     public static final String PREFIX = "spring.cloud.oci.compartment";

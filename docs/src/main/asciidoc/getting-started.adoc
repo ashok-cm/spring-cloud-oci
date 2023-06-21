@@ -19,7 +19,7 @@ Spring Cloud OCI module dependencies can be used directly in Maven with a direct
 </dependencies>
 ----
 
-Different modules can be included by replacing the module name with the respective one (e.g. `spring-cloud-oci-started-storage` instead of `spring-cloud-oci-starter`)
+Different modules can be included by replacing the module name with the respective one (e.g. `spring-cloud-oci-starter-storage` instead of `spring-cloud-oci-starter`)
 
 ==== Starter Dependencies
 

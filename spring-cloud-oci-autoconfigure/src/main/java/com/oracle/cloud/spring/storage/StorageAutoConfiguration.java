@@ -21,6 +21,15 @@ import org.springframework.context.annotation.Import;
 import java.io.IOException;
 import java.util.Optional;
 
+/**
+ * Auto-configuration for initializing the OCI Storage component.
+ * Depends on {@link com.oracle.cloud.spring.autoconfigure.core.CompartmentProviderAutoConfiguration},
+ * {@link com.oracle.cloud.spring.autoconfigure.core.CredentialsProviderAutoConfiguration} and
+ * {@link com.oracle.cloud.spring.autoconfigure.core.RegionProviderAutoConfiguration}
+ * for loading the Authentication configuration
+ *
+ * @see com.oracle.cloud.spring.storage.Storage
+ */
 @ConditionalOnClass({OracleStorageProtocolResolver.class, ObjectStorageClient.class})
 @AutoConfiguration
 @Import(OracleStorageProtocolResolver.class)

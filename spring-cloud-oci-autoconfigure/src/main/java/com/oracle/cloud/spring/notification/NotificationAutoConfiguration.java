@@ -17,6 +17,16 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import java.io.IOException;
+
+/**
+ * Auto-configuration for initializing the OCI Notification component.
+ * Depends on {@link com.oracle.cloud.spring.autoconfigure.core.CompartmentProviderAutoConfiguration},
+ * {@link com.oracle.cloud.spring.autoconfigure.core.CredentialsProviderAutoConfiguration} and
+ * {@link com.oracle.cloud.spring.autoconfigure.core.RegionProviderAutoConfiguration}
+ * for loading the Authentication configuration
+ *
+ * @see com.oracle.cloud.spring.notification.Notification
+ */
 @AutoConfiguration
 @ConditionalOnClass({Notification.class})
 @ConditionalOnProperty(name = "spring.cloud.oci.notification.enabled", havingValue = "true", matchIfMissing = true)

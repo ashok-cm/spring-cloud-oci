@@ -24,6 +24,10 @@ include::storage.adoc[]
 
 include::email.adoc[]
 
+include::notifications.adoc[]
+
+include::logging.adoc[]
+
 == Configuration properties
 
 To see the list of all OCI related configuration properties please check link:appendix.html[the Appendix page].

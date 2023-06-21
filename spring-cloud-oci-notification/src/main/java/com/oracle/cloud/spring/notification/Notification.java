@@ -7,6 +7,9 @@ package com.oracle.cloud.spring.notification;
 
 import com.oracle.bmc.ons.responses.*;
 
+/**
+ * Interface for defining OCI logging module
+ */
 public interface Notification {
     PublishMessageResponse publishMessage(String topicId, String title, String message);
     CreateSubscriptionResponse createSubscription(String compartmentId, String topicId, String protocol, String endpoint);
