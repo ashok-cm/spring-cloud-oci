@@ -18,6 +18,7 @@ Configuration needed to run the Application to be configured in application.prop
 * spring.cloud.oci.config.type - Authentication type to be used for OCI. It could be either of RESOURCE_PRINCIPAL, INSTANCE_PRINCIPAL, SIMPLE and FILE. If nothing is specified, FILE type is used by default
 * spring.cloud.oci.config.file - The file path set to this property will be used as config file for FILE type authentication which used OCI config file. If nothing is specified, OCI config file from user home directory will be used
 * spring.cloud.oci.config.profile - Profile to be used in the OCI config file for Authentication. By default DEFAULT profile will be used
+* spring.cloud.oci.logging.logId - OCID of OCI Log where the logs need to be injested
 
 If the spring.cloud.oci.config.type is SIMPLE, then below properties also needs to be set in the application.properties
 
