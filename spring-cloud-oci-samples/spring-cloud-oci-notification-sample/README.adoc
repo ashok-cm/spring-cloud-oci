@@ -1,0 +1,58 @@
+= Sample Application for OCI Notifications(ONS) Spring Cloud module
+
+This sample application demonstrates how to use the OCI ONS Spring Cloud APIs to:
+
+* Create an OCI ONS Topic
+* Create an OCI ONS subscription for the topic created
+* Publish a message to the topic
+* List all the Subscriptions in a Topic
+* Get a Subscription details from a Topic
+
+This application has below classes:
+
+* `NotificationController`- REST Container class which contains the REST APIs for performing each of the operations in the above section
+* `SpringCloudOciNotificationSampleApplication` - Spring Boot applicaton class, which when run will launch the application
+
+== Pre-requisites
+
+Configuration needed to run the Application to be configured in application.properties
+
+* spring.cloud.oci.region.static - OCI Region name(Ex: us-phoenix-1) where the OCI resources needs to be created
+* spring.cloud.oci.compartment.static - OCID of the OCI Compartment where the OCI resources needs to be created
+* spring.cloud.oci.config.type - Authentication type to be used for OCI. It could be either of RESOURCE_PRINCIPAL, INSTANCE_PRINCIPAL, SIMPLE and FILE. If nothing is specified, FILE type is used by default
+* spring.cloud.oci.config.file - The file path set to this property will be used as config file for FILE type authentication which used OCI config file. If nothing is specified, OCI config file from user home directory will be used
+* spring.cloud.oci.config.profile - Profile to be used in the OCI config file for Authentication. By default DEFAULT profile will be used
+
+If the spring.cloud.oci.config.type is SIMPLE, then below properties also needs to be set in the application.properties
+
+* spring.cloud.oci.region.userId
+* spring.cloud.oci.region.tenantId
+* spring.cloud.oci.region.fingerprint
+* spring.cloud.oci.region.privateKey
+* spring.cloud.oci.region.passPhrase
+
+Please refer https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm[OCI SDK Authentication Methods
+] for more details on the Authentication types supported by OCI
+
+== Running the Application
+
+Open a terminal window and navigate to the root directory of the Application (spring-cloud-oci-samples/spring-cloud-oci-notification-sample), and run the command:
+
+----
+$ mvn spring-boot:run
+----
+
+This will launch a local web server listening on port 8080. The base URL for all the APIs exposed in this application is http://localhost:8080/demoapp/api/notifications
+
+Using the above base URL, below APIs can be invoked:
+
+|===
+|API | Method | URI | Request Params
+
+| Create Topic | POST | /topics | topicName, compartmentId
+| Create Subscription | POST | /subscriptions | topicId, compartmentId, protocol, endpoint
+| Publish Message | POST | /topics/{topicId}/messages | topicId, title, message
+| List Subscriptions | GET | /subscriptions | topicId, compartmentId
+| Get Subscription | GET | /subscriptions/{subscriptionId} | subscriptionId
+
+|===
