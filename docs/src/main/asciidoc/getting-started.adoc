@@ -23,7 +23,7 @@ Different modules can be included by replacing the module name with the respecti
 
 ==== Starter Dependencies
 
-Spring Cloud OCI offers https://github.com/oracle-samples/spring-cloud-oci/tree/main/spring-cloud-oci-starters[starter dependencies] through Maven to easily depend on different modules of the library.
+Spring Cloud OCI offers https://github.com/oracle/spring-cloud-oci/tree/main/spring-cloud-oci-starters[starter dependencies] through Maven to easily depend on different modules of the library.
 Each starter contains all the dependencies and transitive dependencies needed to begin using their corresponding Spring Cloud OCI module.
 
 For example, if you wish to write a Spring application with Cloud Storage, you would include the `spring-cloud-oci-starter-storage` dependency in your project.
@@ -61,7 +61,7 @@ There are a variety of resources to help you learn how to use Spring Cloud OCI l
 
 ==== Sample Applications
 
-The easiest way to learn how to use Spring Cloud OCI is to consult the https://github.com/oracle-samples/spring-cloud-oci/tree/main/spring-cloud-oci-samples[sample applications on Github].
+The easiest way to learn how to use Spring Cloud OCI is to consult the https://github.com/oracle/spring-cloud-oci/tree/main/spring-cloud-oci-samples[sample applications on Github].
 Spring Cloud OCI provides sample applications which demonstrate how to use every integration in the library.
 The table below highlights several samples of the most commonly used integrations in Spring Cloud OCI.
 
