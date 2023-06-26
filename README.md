@@ -11,6 +11,7 @@ All Spring Cloud for OCI artifacts are made available through Maven Central. Dev
 You may checkout samples for the each service supported by Spring Cloud OCI below.
 
 * [OCI Storage Sample](./spring-cloud-oci-samples/spring-cloud-oci-storage-sample/)
+* [OCI Email Service Sample](./spring-cloud-oci-samples/spring-cloud-oci-email-sample/)
 
 ## Checking out and building
 
