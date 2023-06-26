@@ -21,11 +21,11 @@ Configuration needed to run the Application to be configured in application.prop
 
 If the spring.cloud.oci.config.type is SIMPLE, then below properties also needs to be set in the application.properties
 
-* spring.cloud.oci.region.userId
-* spring.cloud.oci.region.tenantId
-* spring.cloud.oci.region.fingerprint
-* spring.cloud.oci.region.privateKey
-* spring.cloud.oci.region.passPhrase
+* spring.cloud.oci.config.userId
+* spring.cloud.oci.config.tenantId
+* spring.cloud.oci.config.fingerprint
+* spring.cloud.oci.config.privateKey
+* spring.cloud.oci.config.passPhrase
 
 Please refer [OCI SDK Authentication Methods
 ](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm) for more details on the Authentication types supported by OCI
