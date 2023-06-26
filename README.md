@@ -12,6 +12,8 @@ You may checkout samples for the each service supported by Spring Cloud OCI belo
 
 * [OCI Storage Sample](./spring-cloud-oci-samples/spring-cloud-oci-storage-sample/)
 * [OCI Email Service Sample](./spring-cloud-oci-samples/spring-cloud-oci-email-sample/)
+* [OCI Notification Service Sample](./spring-cloud-oci-samples/spring-cloud-oci-notification-sample/)
+* [OCI Logging Service Sample](./spring-cloud-oci-samples/spring-cloud-oci-logging-sample/)
 
 ## Checking out and building
 
