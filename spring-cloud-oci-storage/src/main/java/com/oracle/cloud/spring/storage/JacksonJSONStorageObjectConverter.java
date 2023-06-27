@@ -12,6 +12,9 @@ import org.springframework.util.Assert;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Default implementation of {@link StorageObjectConverter}
+ */
 public class JacksonJSONStorageObjectConverter implements StorageObjectConverter {
     private final ObjectMapper objectMapper;
 
@@ -20,6 +23,12 @@ public class JacksonJSONStorageObjectConverter implements StorageObjectConverter
         this.objectMapper = objectMapper;
     }
 
+    /**
+     * Generates byte[] for the specific object
+     * @param object Java POJO
+     * @param <T> Type of Java POJO
+     * @return byte[]
+     */
     @Override
     public <T> byte[] write(T object) {
         Assert.notNull(object, "object is required");
@@ -30,6 +39,13 @@ public class JacksonJSONStorageObjectConverter implements StorageObjectConverter
         }
     }
 
+    /**
+     * Create Java POJO of the specific class type from the input stream
+     * @param is InputStream to read data from.
+     * @param clazz Class instance of the type of Java POJO
+     * @param <T> Type of the Java POJO
+     * @return Instance of Java POJO
+     */
     @Override
     public <T> T read(InputStream is, Class<T> clazz) {
         Assert.notNull(is, "InputStream is required");
@@ -41,6 +57,10 @@ public class JacksonJSONStorageObjectConverter implements StorageObjectConverter
         }
     }
 
+    /**
+     * Returns JSON content type.
+     * @return "application/json"
+     */
     @Override
     public String contentType() {
         return "application/json";

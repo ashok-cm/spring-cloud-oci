@@ -29,9 +29,9 @@ public class NotificationImpl implements Notification {
 
     /**
      * Publish message to a Topic
-     * @param topicId - OCID of the topic
-     * @param title - Message title
-     * @param message - Message content
+     * @param topicId OCID of the topic
+     * @param title Message title
+     * @param message Message content
      * @return
      */
     @Override
@@ -53,10 +53,10 @@ public class NotificationImpl implements Notification {
 
     /**
      * Create a Notification subscription in a Topic
-     * @param compartmentId - Compartment OCID where the Subscription needs to be created
-     * @param topicId - Topic OCID where the Subscription needs to be created
-     * @param protocol - Subscription type. Ex: EMAIL
-     * @param endpoint - Subscription endpoint. Ex: Email ID in case of EMAIL as protocol
+     * @param compartmentId Compartment OCID where the Subscription needs to be created
+     * @param topicId Topic OCID where the Subscription needs to be created
+     * @param protocol Subscription type. Ex: EMAIL
+     * @param endpoint Subscription endpoint. Ex: Email ID in case of EMAIL as protocol
      * @return
      */
     @Override
@@ -70,7 +70,7 @@ public class NotificationImpl implements Notification {
 
     /**
      * Get the Subscription Resource JSON as a String
-     * @param subscriptionId - OCID of the subscription
+     * @param subscriptionId OCID of the subscription
      * @return
      */
     @Override
@@ -84,8 +84,8 @@ public class NotificationImpl implements Notification {
 
     /**
      * List subscriptions in a Topic as a JSON String
-     * @param topicId - Topic OCID where to list the Subscriptions
-     * @param compartmentId - Compartment OCID where the topic is present
+     * @param topicId Topic OCID where to list the Subscriptions
+     * @param compartmentId Compartment OCID where the topic is present
      * @return
      */
     @Override
@@ -100,8 +100,8 @@ public class NotificationImpl implements Notification {
 
     /**
      * Create a OCI Notification Topic
-     * @param topicName - Name of the Topic to be created
-     * @param compartmentId - Compartment OCID where the Topic needs to be created
+     * @param topicName Name of the Topic to be created
+     * @param compartmentId Compartment OCID where the Topic needs to be created
      * @return
      */
     @Override

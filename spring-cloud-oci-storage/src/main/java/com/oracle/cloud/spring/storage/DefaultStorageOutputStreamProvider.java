@@ -11,6 +11,9 @@ import org.springframework.util.unit.DataSize;
 
 import java.io.IOException;
 
+/**
+ * Default factory implementation to create new StorageOutputStream for a specific object.
+ */
 public class DefaultStorageOutputStreamProvider implements StorageOutputStreamProvider {
     private final ObjectStorageClient osClient;
 
@@ -26,6 +29,14 @@ public class DefaultStorageOutputStreamProvider implements StorageOutputStreamPr
         this.bufferSize = bufferSize;
     }
 
+    /**
+     * Create StroageOutputStream for a specific object identified by bucket, key, and other meta information
+     * @param bucket name of the OCI storage bucket.
+     * @param key name or key of the OCI Storage Object.
+     * @param metadata meta information of the object.
+     * @return StorageOutputStream
+     * @throws IOException
+     */
     @Override
     public StorageOutputStream create(String bucket, String key, @Nullable StorageObjectMetadata metadata) throws IOException {
         return null;

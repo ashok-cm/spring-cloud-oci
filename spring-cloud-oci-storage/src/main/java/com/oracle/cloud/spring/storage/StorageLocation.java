@@ -8,6 +8,9 @@ package com.oracle.cloud.spring.storage;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
+/**
+ * Storage location parser for ocs:// protocol URI.
+ */
 public class StorageLocation {
 
     private static final String OCS_PROTOCOL_PREFIX = "ocs://";
@@ -55,6 +58,11 @@ public class StorageLocation {
                 + '}';
     }
 
+    /**
+     * Get the instance of {@link StorageLocation} by parsing storage location URI.
+     * @param location URI string of object stored on OCI Storage service.
+     * @return StorageLocation
+     */
     @Nullable
     public static StorageLocation resolve(String location) {
         if (isSimpleStorageResource(location)) {
@@ -64,6 +72,11 @@ public class StorageLocation {
         return null;
     }
 
+    /**
+     * Checks wheter the location URI starts with protocol prefix (oci://).
+     * @param location String contains storage URI.
+     * @return
+     */
     static boolean isSimpleStorageResource(String location) {
         Assert.notNull(location, "Location must not be null");
         return location.toLowerCase().startsWith(OCS_PROTOCOL_PREFIX);

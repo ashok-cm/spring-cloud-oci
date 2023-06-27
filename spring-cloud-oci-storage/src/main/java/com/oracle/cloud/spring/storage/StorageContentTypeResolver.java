@@ -7,6 +7,9 @@ package com.oracle.cloud.spring.storage;
 
 import org.springframework.lang.Nullable;
 
+/**
+ * Content Type resolver based on file name.
+ */
 public interface StorageContentTypeResolver {
 
     @Nullable

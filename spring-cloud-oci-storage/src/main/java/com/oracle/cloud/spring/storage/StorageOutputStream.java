@@ -7,6 +7,9 @@ package com.oracle.cloud.spring.storage;
 
 import java.io.OutputStream;
 
+/**
+ * Interface to implement OutputStream for Storage Objects.
+ */
 public abstract class StorageOutputStream extends OutputStream {
 
 }
