@@ -16,6 +16,9 @@ import org.springframework.lang.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Default OCI Storage resource implementation of Spring Resource.
+ */
 public class OracleStorageResource extends AbstractResource {
 
     ObjectStorageClient osClient;
@@ -25,6 +28,13 @@ public class OracleStorageResource extends AbstractResource {
     @Nullable
     private StorageObjectMetadata objectMetadata;
 
+    /**
+     * Creates new OracleStorageResource identified by location URI and other information.
+     * @param location Object URI
+     * @param osClient OCI Storage SDK Client instance
+     * @param storageOutputStreamProvider Output Stream Provider
+     * @return OracleStorageResource
+     */
     @Nullable
     public static OracleStorageResource create(String location, ObjectStorageClient osClient,
                                                StorageOutputStreamProvider storageOutputStreamProvider) {
@@ -53,11 +63,20 @@ public class OracleStorageResource extends AbstractResource {
         this.storageOutputStreamProvider = storageOutputStreamProvider;
     }
 
+    /**
+     * Get the description
+     * @return
+     */
     @Override
     public String getDescription() {
         return location.toString();
     }
 
+    /**
+     * Get the Input Stream instance for the given Storage Resource.
+     * @return InputStream
+     * @throws IOException
+     */
     @Override
     public InputStream getInputStream() throws IOException {
         GetNamespaceResponse namespaceResponse =
@@ -75,6 +94,10 @@ public class OracleStorageResource extends AbstractResource {
         return getResponse.getInputStream();
     }
 
+    /**
+     * Sets the custom Object Metadata
+     * @param objectMetadata meta information of the OCI storage object.
+     */
     public void setObjectMetadata(@Nullable StorageObjectMetadata objectMetadata) {
         this.objectMetadata = objectMetadata;
     }

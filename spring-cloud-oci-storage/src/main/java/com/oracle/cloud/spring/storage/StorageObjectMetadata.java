@@ -13,6 +13,9 @@ import org.springframework.lang.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Holding class to define Object Metadata
+ */
 public class StorageObjectMetadata {
 
     @Nullable

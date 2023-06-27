@@ -12,6 +12,9 @@ import org.springframework.lang.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Interface for defining OCI storage module
+ */
 public interface Storage {
 
     OracleStorageResource download(String bucketName, String key);

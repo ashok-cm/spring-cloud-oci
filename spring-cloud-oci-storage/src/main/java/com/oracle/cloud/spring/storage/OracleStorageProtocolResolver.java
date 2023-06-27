@@ -19,6 +19,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.lang.Nullable;
 
+/**
+ * Default implementation of ProtocolResolver to resolve Object URIs starting with specific protocol prefix.
+ */
 public class OracleStorageProtocolResolver implements ProtocolResolver, ResourceLoaderAware, BeanFactoryPostProcessor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OracleStorageProtocolResolver.class);
@@ -32,6 +35,12 @@ public class OracleStorageProtocolResolver implements ProtocolResolver, Resource
     @Nullable
     private StorageOutputStreamProvider storageOutputStreamProvider;
 
+    /**
+     * Resolves OCI storage location URI to Resource.
+     * @param location URI starting with protocol prefix.
+     * @param resourceLoader Instance of ResourceLoader
+     * @return Spring Resource.
+     */
     @Override
     public Resource resolve(String location, ResourceLoader resourceLoader) {
         ObjectStorageClient osClient = getS3Client();
@@ -45,11 +54,20 @@ public class OracleStorageProtocolResolver implements ProtocolResolver, Resource
         return OracleStorageResource.create(location, osClient, storageOutputStreamProvider);
     }
 
+    /**
+     * postProcessBeanFactory implementation
+     * @param beanFactory instance of ConfigurableListableBeanFactory
+     * @throws BeansException
+     */
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         this.beanFactory = beanFactory;
     }
 
+    /**
+     * Sets the {@link ResourceLoader}
+     * @param resourceLoader
+     */
     @Override
     public void setResourceLoader(ResourceLoader resourceLoader) {
         if (DefaultResourceLoader.class.isAssignableFrom(resourceLoader.getClass())) {
@@ -60,6 +78,10 @@ public class OracleStorageProtocolResolver implements ProtocolResolver, Resource
         }
     }
 
+    /**
+     * Get {@link ObjectStorageClient}
+     * @return ObjectStorageClient
+     */
     @Nullable
     private ObjectStorageClient getS3Client() {
         if (osClient != null) {
@@ -75,6 +97,10 @@ public class OracleStorageProtocolResolver implements ProtocolResolver, Resource
         return null;
     }
 
+    /**
+     * Get the StorageOutputStreamProvider instance.
+     * @return StorageOutputStreamProvider
+     */
     @Nullable
     private StorageOutputStreamProvider getStorageOutputStreamProvider() {
         if (storageOutputStreamProvider != null) {

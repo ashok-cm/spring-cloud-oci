@@ -37,7 +37,7 @@ public class LoggingImpl implements LoggingSvc {
 
     /**
      * Ingest logs associated with a Log OCID
-     * @param logText - Content of the log to be ingested
+     * @param logText Content of the log to be ingested
      * @return
      */
     public PutLogsResponse putLogs(String logText) {

@@ -23,6 +23,9 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Default implementation for {@link com.oracle.cloud.spring.storage.Storage}
+ */
 public class StorageImpl implements Storage {
     private final ObjectStorageClient osClient;
     private final StorageOutputStreamProvider storageOutputStreamProvider;
@@ -48,6 +51,13 @@ public class StorageImpl implements Storage {
         this.defaultCompartmentOCID = defaultCompartmentOCID;
     }
 
+    /**
+     * Download specific object from OCI Object Storage.
+     * @param bucketName OCI storage bucket name.
+     * @param key Object name
+     * @param version Version of the object
+     * @return {@link com.oracle.cloud.spring.storage.OracleStorageResource}
+     */
     @Override
     public OracleStorageResource download(String bucketName, String key, String version) {
         Assert.notNull(bucketName, "bucketName is required");
@@ -56,11 +66,25 @@ public class StorageImpl implements Storage {
         return new OracleStorageResource(bucketName, key, version, osClient, storageOutputStreamProvider);
     }
 
+    /**
+     * Download latest version of specific object from OCI Object Storage.
+     * @param bucketName OCI storage bucket name.
+     * @param key Object name
+     * @return {@link com.oracle.cloud.spring.storage.OracleStorageResource}
+     */
     @Override
     public OracleStorageResource download(String bucketName, String key) {
         return download(bucketName, key, null);
     }
 
+    /**
+     * Upload new object (via InputStream) to OCI Object Storage.
+     * @param bucketName OCI storage bucket name.
+     * @param key Object name
+     * @param inputStream Object data with InputStream data type.
+     * @param objectMetadata {@link com.oracle.cloud.spring.storage.StorageObjectMetadata}
+     * @return {@link com.oracle.cloud.spring.storage.OracleStorageResource}
+     */
     @Override
     public OracleStorageResource upload(String bucketName, String key, InputStream inputStream,
                                         @Nullable StorageObjectMetadata objectMetadata) throws IOException {
@@ -94,6 +118,13 @@ public class StorageImpl implements Storage {
         return null;
     }
 
+    /**
+     * Upload Java POJO as JSON object.
+     * @param bucketName OCI storage bucket name.
+     * @param key Object name
+     * @param object POJO object to be stored as json.
+     * @return {@link com.oracle.cloud.spring.storage.OracleStorageResource}
+     */
     @Override
     public OracleStorageResource store(String bucketName, String key, Object object) throws IOException {
         Assert.notNull(bucketName, "bucketName is required");
@@ -103,6 +134,13 @@ public class StorageImpl implements Storage {
         return upload(bucketName, key, new ByteArrayInputStream(storageObjectConverter.write(object)), null);
     }
 
+    /**
+     * Read JSON file stored on Object storage and convert to Java POJO.
+     * @param bucketName OCI storage bucket name.
+     * @param key Object name
+     * @param clazz Type of the Java POJO.
+     * @return Object instnace of clazz.
+     */
     @Override
     public <T> T read(String bucketName, String key, Class<T> clazz) {
         Assert.notNull(bucketName, "bucketName is required");
@@ -117,16 +155,31 @@ public class StorageImpl implements Storage {
         }
     }
 
+    /**
+     * Direct instance of OCI Java SDK Storage Client.
+     * @return ObjectStorageClient
+     */
     @Override
     public ObjectStorageClient getClient() {
         return osClient;
     }
 
+    /**
+     * Create new bucket with the specified bucket name.
+     * @param bucketName OCI storage bucket name.
+     * @return CreateBucketResponse
+     */
     @Override
     public CreateBucketResponse createBucket(String bucketName) {
         return createBucket(bucketName, defaultCompartmentOCID);
     }
 
+    /**
+     * Create new bucket with the specified bucket name on a specific OCI compartment.
+     * @param bucketName OCI storage bucket name.
+     * @param compartmentId OCI compartment OCID.
+     * @return CreateBucketResponse
+     */
     @Override
     public CreateBucketResponse createBucket(String bucketName, String compartmentId) {
         Assert.notNull(bucketName, "bucketName is required");
@@ -146,6 +199,10 @@ public class StorageImpl implements Storage {
         return osClient.createBucket(createSourceBucketRequest);
     }
 
+    /**
+     * Delete storage bucket.
+     * @param bucketName OCI storage bucket name.
+     */
     @Override
     public void deleteBucket(String bucketName) {
         Assert.notNull(bucketName, "bucketName is required");
@@ -158,6 +215,11 @@ public class StorageImpl implements Storage {
         osClient.deleteBucket(deleteBucketRequest);
     }
 
+    /**
+     * Delete storage object based on bucket name and object key.
+     * @param bucketName OCI storage bucket name.
+     * @param key Object name/key.s
+     */
     @Override
     public void deleteObject(String bucketName, String key) {
         Assert.notNull(bucketName, "bucketName is required");
@@ -173,6 +235,10 @@ public class StorageImpl implements Storage {
         osClient.deleteObject(deleteObjectRequest);
     }
 
+    /**
+     * Get the current OCI storage namespace.
+     * @return name of the namespace.
+     */
     @Override
     public String getNamespaceName() {
         GetNamespaceResponse namespaceResponse =

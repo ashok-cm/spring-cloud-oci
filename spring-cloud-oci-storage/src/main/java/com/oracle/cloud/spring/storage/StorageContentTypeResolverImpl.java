@@ -13,6 +13,9 @@ import org.springframework.util.Assert;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Default implementation of StorageContentTypeResolver
+ */
 public class StorageContentTypeResolverImpl implements StorageContentTypeResolver {
     private static final String PROPERTIES_FILE_LOCATION = "/com/oracle/cloud/spring/storage/StorageContentTypeResolver.properties";
 
@@ -37,6 +40,11 @@ public class StorageContentTypeResolverImpl implements StorageContentTypeResolve
         this.properties = properties;
     }
 
+    /**
+     * Identifies and returns the content type by matching fileName with StorageContentTypeResolver.properties.
+     * @param fileName name of the file object.
+     * @return Content Type
+     */
     @Override
     public String resolveContentType(String fileName) {
         Assert.notNull(fileName, "fileName is required");
