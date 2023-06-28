@@ -20,8 +20,7 @@ import java.io.IOException;
 
 /**
  * Auto-configuration for initializing the OCI Notification component.
- * Depends on {@link com.oracle.cloud.spring.autoconfigure.core.CompartmentProviderAutoConfiguration},
- * {@link com.oracle.cloud.spring.autoconfigure.core.CredentialsProviderAutoConfiguration} and
+ * Depends on {@link com.oracle.cloud.spring.autoconfigure.core.CredentialsProviderAutoConfiguration} and
  * {@link com.oracle.cloud.spring.autoconfigure.core.RegionProviderAutoConfiguration}
  * for loading the Authentication configuration
  *
