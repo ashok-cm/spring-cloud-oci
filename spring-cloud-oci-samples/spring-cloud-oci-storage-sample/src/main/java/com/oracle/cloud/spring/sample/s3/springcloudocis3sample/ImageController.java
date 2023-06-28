@@ -43,9 +43,9 @@ public class ImageController {
                                       @Parameter(required = true) @PathVariable String objectName,
                                       @Parameter(required = false, example = "image/jpeg") @RequestParam(required = false) String mediaType) {
         MediaType mt = APPLICATION_OCTET_STREAM;
-        //if (mediaType != null && MediaType.valueOf(mediaType) != null) {
-          //  mt = MediaType.valueOf(mediaType);
-        //}
+        if (mediaType != null && MediaType.valueOf(mediaType) != null) {
+           mt = MediaType.valueOf(mediaType);
+        }
 
         return ResponseEntity.ok()
                 .contentType(mt)
