@@ -35,6 +35,16 @@ public class LoggingImpl implements LoggingSvc {
         this.logId = logId;
     }
 
+
+    /**
+     * Direct instance of OCI Java SDK Logging Client.
+     * @return Logging
+     */
+    @Override
+    public Logging getClient() {
+        return logging;
+    }
+
     /**
      * Ingest logs associated with a Log OCID
      * @param logText Content of the log to be ingested
