@@ -51,7 +51,7 @@ public class StorageAutoConfiguration {
     @ConditionalOnMissingBean
     ObjectStorageClient objectStorageClient(BasicAuthenticationDetailsProvider adp, RegionProvider regionProvider) throws IOException {
         ObjectStorageClient osClient = new ObjectStorageClient(adp);
-        osClient.setRegion(regionProvider.getRegion());
+        if (regionProvider.getRegion() != null) osClient.setRegion(regionProvider.getRegion());
         return osClient;
     }
 

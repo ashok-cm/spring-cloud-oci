@@ -14,16 +14,17 @@ import org.springframework.util.Assert;
  */
 public class StaticRegionProvider implements RegionProvider {
 
-    private final Region region;
+    private Region region;
 
     public StaticRegionProvider(String regionName) {
-        Assert.notNull(regionName, "region is required");
-
         try {
             region = Region.valueOf(regionName);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("The region '" + regionName + "' is not a valid region!", e);
         }
+    }
+
+    public StaticRegionProvider() {
     }
 
     @Override

@@ -39,6 +39,6 @@ public class RegionProviderAutoConfiguration {
             return new StaticRegionProvider(properties.getStatic().trim());
         }
 
-        return new StaticRegionProvider("US_ASHBURN_1");
+        return new StaticRegionProvider();
     }
 }

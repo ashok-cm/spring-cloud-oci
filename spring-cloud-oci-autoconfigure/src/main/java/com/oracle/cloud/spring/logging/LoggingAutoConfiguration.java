@@ -47,7 +47,7 @@ public class LoggingAutoConfiguration {
     Logging loggingClient(BasicAuthenticationDetailsProvider adp,
                           RegionProvider regionProvider) {
         Logging logging = new LoggingClient(adp);
-        logging.setRegion(regionProvider.getRegion());
+        if (regionProvider.getRegion() != null) logging.setRegion(regionProvider.getRegion());
         return logging;
     }
 }

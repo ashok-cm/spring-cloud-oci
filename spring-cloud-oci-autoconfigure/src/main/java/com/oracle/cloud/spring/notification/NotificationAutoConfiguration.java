@@ -42,7 +42,7 @@ public class NotificationAutoConfiguration {
     NotificationDataPlane notificationDataPlaneClient(BasicAuthenticationDetailsProvider adp,
                                                       RegionProvider regionProvider) throws IOException {
         NotificationDataPlane notificationDataPlaneClient = new NotificationDataPlaneClient(adp);
-        notificationDataPlaneClient.setRegion(regionProvider.getRegion());
+        if (regionProvider.getRegion() != null) notificationDataPlaneClient.setRegion(regionProvider.getRegion());
         return notificationDataPlaneClient;
     }
 
@@ -51,7 +51,7 @@ public class NotificationAutoConfiguration {
     NotificationControlPlane notificationControlPlaneClient(BasicAuthenticationDetailsProvider adp,
                                                             RegionProvider regionProvider) throws IOException {
         NotificationControlPlane notificationControlPlaneClient = new NotificationControlPlaneClient(adp);
-        notificationControlPlaneClient.setRegion(regionProvider.getRegion());
+        if (regionProvider.getRegion() != null) notificationControlPlaneClient.setRegion(regionProvider.getRegion());
         return notificationControlPlaneClient;
     }
 }
