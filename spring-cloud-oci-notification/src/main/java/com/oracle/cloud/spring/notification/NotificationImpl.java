@@ -28,6 +28,22 @@ public class NotificationImpl implements Notification {
     }
 
     /**
+     * Direct instance of OCI Java SDK NotificationDataPlane Client.
+     * @return NotificationDataPlane
+     */
+    public NotificationDataPlane getNotificationDataPlaneClient() {
+        return notificationDataPlane;
+    }
+
+    /**
+     * Direct instance of OCI Java SDK NotificationControlPlane Client.
+     * @return NotificationControlPlane
+     */
+    public NotificationControlPlane getNotificationControlPlaneClient() {
+        return notificationControlPlane;
+    }
+
+    /**
      * Publish message to a Topic
      * @param topicId OCID of the topic
      * @param title Message title
