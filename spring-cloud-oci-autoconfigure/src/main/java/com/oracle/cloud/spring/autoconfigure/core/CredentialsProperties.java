@@ -50,6 +50,9 @@ public class CredentialsProperties {
     private String passPhrase;
 
     @Nullable
+    private String region;
+
+    @Nullable
     public String getProfile() {
         return profile;
     }
@@ -126,5 +129,14 @@ public class CredentialsProperties {
 
     public void setPassPhrase(@Nullable String passPhrase) {
         this.passPhrase = passPhrase;
+    }
+
+    @Nullable
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(@Nullable String region) {
+        this.region = region;
     }
 }

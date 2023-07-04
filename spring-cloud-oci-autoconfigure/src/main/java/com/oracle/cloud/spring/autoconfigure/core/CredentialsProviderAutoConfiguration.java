@@ -5,6 +5,7 @@
 
 package com.oracle.cloud.spring.autoconfigure.core;
 
+import com.oracle.bmc.Region;
 import com.oracle.bmc.auth.AuthenticationDetailsProvider;
 import com.oracle.bmc.auth.BasicAuthenticationDetailsProvider;
 import com.oracle.bmc.auth.ConfigFileAuthenticationDetailsProvider;
@@ -62,7 +63,8 @@ public class CredentialsProviderAutoConfiguration {
                         .tenantId(properties.getTenantId())
                         .fingerprint(properties.getFingerprint())
                         .privateKeySupplier(new SimplePrivateKeySupplier(properties.getPrivateKey()))
-                        .passPhrase(properties.getPassPhrase());
+                        .passPhrase(properties.getPassPhrase())
+                        .region(Region.valueOf(properties.getRegion()));
 
                 authenticationDetailsProvider = builder.build();
                 break;
