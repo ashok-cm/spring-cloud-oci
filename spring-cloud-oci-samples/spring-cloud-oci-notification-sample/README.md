@@ -29,6 +29,7 @@ If the spring.cloud.oci.config.type is SIMPLE, then below properties also needs 
 * spring.cloud.oci.config.fingerprint
 * spring.cloud.oci.config.privateKey
 * spring.cloud.oci.config.passPhrase
+* spring.cloud.oci.config.region
 
 Please refer [OCI SDK Authentication Methods
 ](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm) for more details on the Authentication types supported by OCI

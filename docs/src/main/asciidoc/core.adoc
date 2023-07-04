@@ -49,6 +49,7 @@ spring.cloud.oci.config.tenantId = <TENANT_ID>
 spring.cloud.oci.config.fingerprint = <FINGERPRINT>
 spring.cloud.oci.config.privateKey = <PRIVATE_KEY_FILE_PATH>
 spring.cloud.oci.config.passPhrase = <PASS_PHRASE>
+spring.cloud.oci.config.region = <REGION>
 ----
 
 ==== Instance Principal Configuration
