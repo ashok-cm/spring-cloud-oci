@@ -63,9 +63,10 @@ public class CredentialsProviderAutoConfiguration {
                         .tenantId(properties.getTenantId())
                         .fingerprint(properties.getFingerprint())
                         .privateKeySupplier(new SimplePrivateKeySupplier(properties.getPrivateKey()))
-                        .passPhrase(properties.getPassPhrase())
-                        .region(Region.valueOf(properties.getRegion()));
-
+                        .passPhrase(properties.getPassPhrase());
+                if (properties.getRegion() != null) {
+                    builder.region(Region.valueOf(properties.getRegion()));
+                }
                 authenticationDetailsProvider = builder.build();
                 break;
             default:
