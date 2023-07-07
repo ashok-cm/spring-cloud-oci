@@ -69,7 +69,7 @@ The table below highlights several samples of the most commonly used integration
 | OCI Integration | Sample Application
 
 | Cloud Storage
-| https://github.com/oracle-sample/spring-cloud-oci/tree/main/spring-cloud-oci-samples/spring-cloud-oci-storage-sample[spring-cloud-oci-storage-sample]
+| https://github.com/oracle/spring-cloud-oci/tree/main/spring-cloud-oci-samples/spring-cloud-oci-storage-sample[spring-cloud-oci-storage-sample]
 
 |===
 
