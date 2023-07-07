@@ -40,10 +40,13 @@ public class ObjectController {
 
     @GetMapping("/")
     String hello() throws IOException {
-        Object obj = loader.getResource("ocs://your-bucket/555.json");
-        Scanner s = new Scanner(((OracleStorageResource)obj).getInputStream()).useDelimiter("\\A");
-        String result = s.hasNext() ? s.next() : "";
-        System.out.println(result);
+        // Note: This is the sample piece of code to access 
+        // OCI Storage Object with resource URI as ocs://<bucket>/<object-name>
+
+        // Object obj = loader.getResource("ocs://your-bucket/object-name");
+        // Scanner s = new Scanner(((OracleStorageResource)obj).getInputStream()).useDelimiter("\\A");
+        // String result = s.hasNext() ? s.next() : "";
+        // System.out.println(result);
         return "Hello World ";
     }
 
