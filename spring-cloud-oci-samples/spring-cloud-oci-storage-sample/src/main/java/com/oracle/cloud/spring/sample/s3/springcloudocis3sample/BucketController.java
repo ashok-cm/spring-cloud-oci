@@ -26,7 +26,7 @@ public class BucketController {
 
     @PostMapping("/")
     void createBucket(@Parameter(required = true, example = "new-bucket") @RequestParam String bucketName,
-                      @Parameter(name = "Compartment OCID", required = false) @RequestParam(required = false) String compartmentId) {
+                      @Parameter(required = false) @RequestParam(required = false) String compartmentId) {
         if (compartmentId != null) {
             storage.createBucket(bucketName, compartmentId);
         } else {
