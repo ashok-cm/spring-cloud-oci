@@ -69,7 +69,16 @@ The table below highlights several samples of the most commonly used integration
 | OCI Integration | Sample Application
 
 | Cloud Storage
-| https://github.com/oracle-sample/spring-cloud-oci/tree/main/spring-cloud-oci-samples/spring-cloud-oci-storage-sample[spring-cloud-oci-storage-sample]
+| https://github.com/oracle/spring-cloud-oci/tree/main/spring-cloud-oci-samples/spring-cloud-oci-storage-sample[spring-cloud-oci-storage-sample]
+
+| Cloud Notification
+| https://github.com/oracle/spring-cloud-oci/tree/main/spring-cloud-oci-samples/spring-cloud-oci-notification-sample[spring-cloud-oci-notification-sample]
+
+| Cloud Logging
+| https://github.com/oracle/spring-cloud-oci/tree/main/spring-cloud-oci-samples/spring-cloud-oci-logging-sample[spring-cloud-oci-logging-sample]
+
+| Cloud Email
+| https://github.com/oracle/spring-cloud-oci/tree/main/spring-cloud-oci-samples/spring-cloud-oci-email-sample[spring-cloud-oci-email-sample]
 
 |===
 
