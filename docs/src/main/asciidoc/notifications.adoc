@@ -51,7 +51,7 @@ The Spring Boot Starter for Oracle Cloud Notifications provides the following co
 
 |===
 | Name | Description | Required | Default value
-| `spring.cloud.oci.notification.enabled` | Enables the OCI Notifications APIs. | no | `true`
+| `spring.cloud.oci.notification.enabled` | Enables the OCI Notifications APIs. | No | `true`
 |===
 
 

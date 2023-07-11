@@ -51,7 +51,7 @@ The Spring Boot Starter for Oracle Cloud Logging provides the following configur
 
 |===
 | Name | Description | Required | Default value
-| `spring.cloud.oci.logging.enabled` | Enables the OCI Logging APIs. | no | `true`
+| `spring.cloud.oci.logging.enabled` | Enables the OCI Logging APIs. | No | `true`
 |===
 
 
