@@ -3,7 +3,7 @@
 #  Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
 # ----------------------------------------------------------------------------
 
-.PHONY: format build docs
+.PHONY: format build javadocs
 
 format:
 	mvnd spotless:apply
@@ -13,9 +13,6 @@ build:
 
 clean:
 	mvnd clean
-
-docs:
-	mvnd verify -Pdocs -DskipTests=true
 
 javadocs:
 	mvnd clean package javadoc:aggregate -DskipTests=true -e
