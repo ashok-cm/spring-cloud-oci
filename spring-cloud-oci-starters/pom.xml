@@ -28,7 +28,5 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
         <module>spring-cloud-oci-starter-notification</module>
         <module>spring-cloud-oci-starter-logging</module>
     </modules>
-
     <artifactId>spring-cloud-oci-starters</artifactId>
-
 </project>

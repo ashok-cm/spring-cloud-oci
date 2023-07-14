@@ -47,27 +47,23 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
         <dependency>
             <groupId>com.oracle.oci.sdk</groupId>
             <artifactId>oci-java-sdk-common</artifactId>
-            <version>3.19.0</version>
         </dependency>
         <dependency>
             <groupId>com.oracle.oci.sdk</groupId>
             <artifactId>oci-java-sdk-common-httpclient-jersey</artifactId>
-            <version>3.19.0</version>
         </dependency>
         <dependency>
             <groupId>com.oracle.oci.sdk</groupId>
             <artifactId>oci-java-sdk-objectstorage</artifactId>
-            <version>3.19.0</version>
         </dependency>
         <dependency>
             <groupId>com.oracle.oci.sdk</groupId>
             <artifactId>oci-java-sdk-identity</artifactId>
-            <version>3.19.0</version>
         </dependency>
         <dependency>
             <groupId>com.oracle.oci.sdk</groupId>
             <artifactId>oci-java-sdk-objectstorage-extensions</artifactId>
-            <version>3.19.0</version>
+			<version>${oci-sdk.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

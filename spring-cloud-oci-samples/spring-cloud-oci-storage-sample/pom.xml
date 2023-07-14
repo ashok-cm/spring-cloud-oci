@@ -32,17 +32,14 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
         <dependency>
             <groupId>com.oracle.cloud.spring</groupId>
             <artifactId>spring-cloud-oci-starter-storage</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.7.4</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>2.7.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -57,7 +54,6 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.7.4</version>
             </plugin>
         </plugins>
     </build>
