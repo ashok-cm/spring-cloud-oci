@@ -9,7 +9,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.oracle.cloud.spring.sample.logging</groupId>
 	<artifactId>spring-cloud-oci-logging-sample</artifactId>
-	<version>1.0-SNAPSHOT</version>
 	<name>spring-cloud-oci-logging-sample</name>
 	<description>spring-cloud-oci-logging-sample</description>
 	<licenses>
