@@ -3,7 +3,7 @@
  ** Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
  */
 
-package com.oracle.cloud.spring.logging.springcloudociloggingsample;
+package com.oracle.cloud.spring.sample.logging.springcloudociloggingsample;
 
 import com.oracle.bmc.loggingingestion.responses.PutLogsResponse;
 import com.oracle.cloud.spring.logging.Logging;

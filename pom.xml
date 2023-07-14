@@ -86,6 +86,7 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
 					<author>true</author>
 					<header>${project.name}</header>
 					<reportOutputDirectory>${project.build.directory}/site/${project.version}/apidocs</reportOutputDirectory>
+                    <excludePackageNames>com.oracle.cloud.spring.sample.*</excludePackageNames>
 				</configuration>
 			</plugin>
             <plugin>
