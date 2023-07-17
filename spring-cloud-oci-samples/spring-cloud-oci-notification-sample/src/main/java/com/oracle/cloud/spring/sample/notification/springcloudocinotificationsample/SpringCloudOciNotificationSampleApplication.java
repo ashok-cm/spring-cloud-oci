@@ -3,16 +3,16 @@
  ** Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
  */
 
-package com.oracle.cloud.spring.logging.springcloudociloggingsample;
+package com.oracle.cloud.spring.sample.notification.springcloudocinotificationsample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringCloudOciLoggingSampleApplication {
+public class SpringCloudOciNotificationSampleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringCloudOciLoggingSampleApplication.class, args);
+		SpringApplication.run(SpringCloudOciNotificationSampleApplication.class, args);
 	}
 
 }
