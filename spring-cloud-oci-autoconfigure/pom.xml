@@ -90,14 +90,11 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>5.3.23</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.3.23</version>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
