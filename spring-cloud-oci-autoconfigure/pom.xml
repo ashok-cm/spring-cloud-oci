@@ -59,52 +59,42 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
         <dependency>
             <groupId>com.oracle.oci.sdk</groupId>
             <artifactId>oci-java-sdk-common</artifactId>
-            <version>3.19.0</version>
         </dependency>
         <dependency>
             <groupId>com.oracle.cloud.spring</groupId>
             <artifactId>spring-cloud-oci-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.oracle.cloud.spring</groupId>
             <artifactId>spring-cloud-oci-storage</artifactId>
-            <version>1.0-SNAPSHOT</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.oracle.cloud.spring</groupId>
             <artifactId>spring-cloud-oci-notification</artifactId>
-            <version>1.0-SNAPSHOT</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.oracle.cloud.spring</groupId>
             <artifactId>spring-cloud-oci-logging</artifactId>
-            <version>1.0-SNAPSHOT</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.oracle.oci.sdk</groupId>
             <artifactId>oci-java-sdk-ons</artifactId>
-            <version>3.19.0</version>
         </dependency>
         <dependency>
             <groupId>com.oracle.oci.sdk</groupId>
             <artifactId>oci-java-sdk-objectstorage</artifactId>
-            <version>3.19.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>5.3.23</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.3.23</version>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -113,5 +103,15 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.oracle.cloud.spring</groupId>
+                <artifactId>spring-cloud-oci-dependencies</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
