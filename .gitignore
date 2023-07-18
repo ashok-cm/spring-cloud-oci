@@ -10,3 +10,5 @@
 .run
 target/
 Thumbs.db
+input_ocibuild*
+output_ocibuild*
