@@ -43,8 +43,8 @@ public class LoggingAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    com.oracle.bmc.loggingingestion.Logging loggingClient(BasicAuthenticationDetailsProvider adp,
-                                                          RegionProvider regionProvider) {
+    com.oracle.bmc.loggingingestion.Logging loggingClient(RegionProvider regionProvider,
+                                                          BasicAuthenticationDetailsProvider adp) {
         com.oracle.bmc.loggingingestion.Logging logging = new LoggingClient(adp);
         if (regionProvider.getRegion() != null) logging.setRegion(regionProvider.getRegion());
         return logging;
