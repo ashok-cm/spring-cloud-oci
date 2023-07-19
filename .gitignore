@@ -10,3 +10,7 @@
 .run
 target/
 Thumbs.db
+ocibuild.conf
+sca-config.json
+input_ocibuild*
+output_ocibuild*
