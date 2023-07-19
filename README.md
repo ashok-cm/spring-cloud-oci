@@ -62,14 +62,6 @@ make format
 
 ## Documentation
 
-Generate usage documentation with below command
-
-```
-make docs
-```
-
-Output generated at `docs/target/generated-docs/`
-
 Java docs can be generated with below command
 
 ```
