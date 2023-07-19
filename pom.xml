@@ -82,12 +82,12 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
                 <version>3.5.0</version>
 				<configuration>
 					<skip>false</skip>
-					<links>
+					<!--<links>
 						<link>https://docs.oracle.com/javase/8/docs/api/</link>
 						<link>https://javaee.github.io/javaee-spec/javadocs/</link>
 						<link>https://fasterxml.github.io/jackson-core/javadoc/2.8/</link>
 						<link>https://docs.spring.io/spring/docs/5.3.x/javadoc-api/</link>
-					</links>
+					</links> -->
 					<author>true</author>
 					<header>${project.name}</header>
 					<reportOutputDirectory>${project.build.directory}/site/${project.version}/apidocs</reportOutputDirectory>
