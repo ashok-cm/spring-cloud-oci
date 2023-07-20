@@ -56,12 +56,25 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
         </dependency>
     </dependencies>
 
-    <!-- <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.4.1</version>
+    <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+				<configuration>
+					<skip>false</skip>
+					<!--<links>
+						<link>https://docs.oracle.com/javase/8/docs/api/</link>
+						<link>https://javaee.github.io/javaee-spec/javadocs/</link>
+						<link>https://fasterxml.github.io/jackson-core/javadoc/2.8/</link>
+						<link>https://docs.spring.io/spring/docs/5.3.x/javadoc-api/</link>
+					</links> -->
+					<author>true</author>
+					<header>${project.name}</header>
+					<reportOutputDirectory>${project.build.directory}/site/${project.version}/apidocs</reportOutputDirectory>
+                    <excludePackageNames>com.oracle.cloud.spring.sample.*</excludePackageNames>
+				</configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -70,30 +83,20 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-        </plugins>
-	</build> -->
-
-    <build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.4.1</version>
-				<configuration>
-					<skip>false</skip>
-					<links>
-						<link>https://docs.oracle.com/javase/8/docs/api/</link>
-						<link>https://javaee.github.io/javaee-spec/javadocs/</link>
-						<link>https://fasterxml.github.io/jackson-core/javadoc/2.8/</link>
-						<link>https://docs.spring.io/spring/docs/5.3.x/javadoc-api/</link>
-					</links>
-					<author>true</author>
-					<header>${project.name}</header>
-					<reportOutputDirectory>${project.build.directory}/site/${project.version}/apidocs</reportOutputDirectory>
-                    <excludePackageNames>com.oracle.cloud.spring.sample.*</excludePackageNames>
-				</configuration>
 			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>com.diffplug.spotless</groupId>
                 <artifactId>spotless-maven-plugin</artifactId>
