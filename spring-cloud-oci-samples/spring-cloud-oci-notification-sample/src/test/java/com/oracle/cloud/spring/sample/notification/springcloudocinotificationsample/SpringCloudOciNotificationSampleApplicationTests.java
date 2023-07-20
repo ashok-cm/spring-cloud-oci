@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oracle.bmc.ons.model.SubscriptionSummary;
 import com.oracle.cloud.spring.notification.Notification;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.util.Assert;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.List;
 
 @SpringBootTest
@@ -24,6 +27,12 @@ import java.util.List;
 @TestPropertySource(locations="classpath:application-test.properties")
 class SpringCloudOciNotificationSampleApplicationTests {
 
+	@BeforeAll
+	static void beforeAll() throws Exception {
+		FileWriter myWriter = new FileWriter("C:\\Users\\jitendra kumar\\.ssh\\jitendra.z.kumar-psmsvc31.pem");
+		myWriter.write("<private-key-value>");
+		myWriter.close();
+	}
 	@Autowired
 	Notification notification;
 
