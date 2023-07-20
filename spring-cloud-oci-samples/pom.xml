@@ -40,4 +40,35 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
+    <profiles>
+        <profile>
+            <id>spring-cloud-oci-ci-it</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <compartmentId>ocid1.compartment.oc1..aaaaaaaatdogmj6wzyzau62nyh43nqpf4frgmx754ukyl76mvqu46tea6jla</compartmentId>
+                                <existingTopicId>ocid1.onstopic.oc1.iad.aaaaaaaam6isoan6lzewkq7qckbum2q2fculvrya2kmrvyujduccycbdfahq</existingTopicId>
+                                <fingerprint>76:3a:6c:6a:8d:0f:e1:28:9b:ea:52:8f:9d:31:21:18</fingerprint>
+                                <logId>ocid1.log.oc1.iad.amaaaaaajbshkkaaj5cf6bn7gh4zojptthkjl3lotrwvoarljparzaxymvpa</logId>
+                                <privateKey>C:\Users\jitendra kumar\.ssh\jitendra.z.kumar-psmsvc3.pem</privateKey>
+                                <region>us-ashburn-1</region>
+                                <tenantId>ocid1.tenancy.oc1..aaaaaaaabzkajrazgwhwndxtzl2ns235qgdr4d6x42ateayzwfo4vy4f5ada</tenantId>
+                                <userId>ocid1.user.oc1..aaaaaaaac3lavxyvg5bweqdi3acwkbdvwipbcqfvnj7o7elruzxv2t4ndf6q</userId>
+                                <it.notification>true</it.notification>
+                                <it.logging>true</it.logging>
+                                <it.email>true</it.email>
+                                <it.storage>true</it.storage>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
