@@ -7,7 +7,14 @@ package com.oracle.cloud.spring.sample.notification.springcloudocinotificationsa
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.oracle.bmc.ons.NotificationControlPlane;
+import com.oracle.bmc.ons.model.Subscription;
 import com.oracle.bmc.ons.model.SubscriptionSummary;
+import com.oracle.bmc.ons.requests.DeleteTopicRequest;
+import com.oracle.bmc.ons.responses.CreateSubscriptionResponse;
+import com.oracle.bmc.ons.responses.CreateTopicResponse;
+import com.oracle.bmc.ons.responses.DeleteTopicResponse;
+import com.oracle.bmc.ons.responses.PublishMessageResponse;
 import com.oracle.cloud.spring.notification.Notification;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -29,33 +36,77 @@ class SpringCloudOciNotificationSampleApplicationTests {
 
 	@BeforeAll
 	static void beforeAll() throws Exception {
-		FileWriter myWriter = new FileWriter("C:\\Users\\jitendra kumar\\.ssh\\jitendra.z.kumar-psmsvc31.pem");
-		myWriter.write("<private-key-value>");
-		myWriter.close();
+		String privateKeyFilePath = System.getenv().get("privateKey");
+		File f = new File(privateKeyFilePath);
+
+		if(!f.exists() || f.isDirectory()) {
+			FileWriter myWriter = new FileWriter(privateKeyFilePath);
+			String privateKeyContent = System.getenv().get("privateKeyContent");
+			myWriter.write(privateKeyContent);
+			myWriter.close();
+		}
 	}
 	@Autowired
 	Notification notification;
 
-	@Value("${existingTopicId}")
-	String existingTopicId;
+	@Value("${topicName}")
+	String topicName;
 
 	@Value("${compartmentId}")
 	String compartmentId;
 
 	@Test
 	void testNotificationApis() throws Exception {
-		testListSubscriptions();
-		/**
-		 * TODO : add test for get subscription, create topic, publish message also
-		 */
+		String topicOcid = testCreateTopic();
+		String subscriptionOcid = testCreatSubscription(topicOcid);
+		testGetSubscription(subscriptionOcid);
+		testListSubscriptions(topicOcid);
+		testPublishMessage(topicOcid);
+		testDeleteTopic(topicOcid);
 	}
 
-	private void testListSubscriptions() throws Exception {
-		String listSubscriptions = notification.listSubscriptions(existingTopicId,
+	private String testCreateTopic() {
+		CreateTopicResponse response = notification.createTopic(topicName, compartmentId);
+		String topicOcid = response.getNotificationTopic().getTopicId();
+		Assert.notNull(topicOcid);
+		return topicOcid;
+	}
+
+	private String testCreatSubscription(String topicOcid) {
+		CreateSubscriptionResponse response = notification.createSubscription(compartmentId, topicOcid, "EMAIL",
+				"springcloud@oracle.com");
+		String subscriptionOcid = response.getSubscription().getId();
+		Assert.notNull(subscriptionOcid);
+		return subscriptionOcid;
+	}
+
+	private Subscription testGetSubscription(String subscriptionOcid) throws Exception {
+		String response = notification.getSubscription(subscriptionOcid);
+		ObjectMapper objectMapper = new ObjectMapper();
+		Subscription subscription = objectMapper.readValue(response, new TypeReference<Subscription>(){});
+		Assert.notNull(subscription);
+		return subscription;
+	}
+
+	private void testListSubscriptions(String topicOcid) throws Exception {
+		String listSubscriptions = notification.listSubscriptions(topicOcid,
 				compartmentId);
 		ObjectMapper objectMapper = new ObjectMapper();
 		List<SubscriptionSummary> notificationList =
 				objectMapper.readValue(listSubscriptions, new TypeReference<List<SubscriptionSummary>>(){});
 		Assert.isTrue(notificationList.size() > 0);
+	}
+
+	private void testPublishMessage(String topicOcid) {
+		PublishMessageResponse response = notification.publishMessage(topicOcid,
+				"integration-test-subject", "integration-test-message");
+		Assert.notNull(response.getPublishResult().getMessageId());
+	}
+
+	private void testDeleteTopic(String topicOcid) {
+		DeleteTopicRequest request = DeleteTopicRequest.builder().topicId(topicOcid).build();
+		NotificationControlPlane controlPlane = notification.getNotificationControlPlaneClient();
+		DeleteTopicResponse response = controlPlane.deleteTopic(request);
+		Assert.notNull(response.getOpcRequestId());
 	}
 }

@@ -7,6 +7,7 @@ package com.oracle.cloud.spring.sample.logging.springcloudociloggingsample;
 
 import com.oracle.bmc.loggingingestion.responses.PutLogsResponse;
 import com.oracle.cloud.spring.logging.Logging;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,27 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.util.Assert;
 
+import java.io.File;
+import java.io.FileWriter;
+
 
 @SpringBootTest
 /** @EnabledIfSystemProperty(named = "it.logging", matches = "true") **/
 @TestPropertySource(locations="classpath:application-test.properties")
 class SpringCloudOciLoggingSampleApplicationTests {
+
+	@BeforeAll
+	static void beforeAll() throws Exception {
+		String privateKeyFilePath = System.getenv().get("privateKey");
+		File f = new File(privateKeyFilePath);
+
+		if(!f.exists() || f.isDirectory()) {
+			FileWriter myWriter = new FileWriter(privateKeyFilePath);
+			String privateKeyContent = System.getenv().get("privateKeyContent");
+			myWriter.write(privateKeyContent);
+			myWriter.close();
+		}
+	}
 
 	@Autowired
 	Logging logging;
@@ -27,7 +44,7 @@ class SpringCloudOciLoggingSampleApplicationTests {
 	void testLoggingApis() {
 
 		PutLogsResponse response = logging.putLogs("error starting application");
-		Assert.isTrue(response.getOpcRequestId() != null);
+		Assert.notNull(response.getOpcRequestId());
 	}
 
 }
