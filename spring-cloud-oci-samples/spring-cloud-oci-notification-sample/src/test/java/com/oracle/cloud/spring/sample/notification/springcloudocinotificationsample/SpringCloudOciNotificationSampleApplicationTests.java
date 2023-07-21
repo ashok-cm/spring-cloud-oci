@@ -27,20 +27,26 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.util.Assert;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.util.List;
 
+/**
+ * Environment variables needed to run this tests are :
+ * all variables in application-test.properties files,
+ * topicName,
+ * compartmentId
+ */
 @SpringBootTest
-/** @EnabledIfSystemProperty(named = "it.notification", matches = "true") **/
+@EnabledIfSystemProperty(named = "it.notification", matches = "true")
 @TestPropertySource(locations="classpath:application-test.properties")
 class SpringCloudOciNotificationSampleApplicationTests {
 
+	static String privateKeyFilePath = System.getProperty("privateKey") != null ? System.getProperty("privateKey") :
+			System.getenv().get("privateKey");
+	static String privateKeyContent = System.getProperty("privateKeyContent") != null ? System.getProperty("privateKeyContent") :
+			System.getenv().get("privateKeyContent");
 	@BeforeAll
 	static void beforeAll() throws Exception {
-		String privateKeyFilePath = System.getenv().get("privateKey");
-		String privateKeyContent = System.getenv().get("privateKeyContent");
-		FileUtils.createFile(privateKeyFilePath, privateKeyContent);
+		FileUtils.createFile(privateKeyFilePath, privateKeyContent.replace("\\n", "\n"));
 	}
 
 	@Autowired
@@ -108,8 +114,7 @@ class SpringCloudOciNotificationSampleApplicationTests {
 	}
 
 	@AfterAll
-	static void AfterAll() throws Exception {
-		String privateKeyFilePath = System.getenv().get("privateKey");
+	static void AfterAll() {
 		FileUtils.deleteFile(privateKeyFilePath);
 	}
 }

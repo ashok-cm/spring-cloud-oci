@@ -1,3 +1,8 @@
+/*
+ ** Copyright (c) 2023, Oracle and/or its affiliates.
+ ** Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
+ */
+
 package com.oracle.cloud.spring.core.util;
 
 import java.io.File;
@@ -5,9 +10,15 @@ import java.io.FileWriter;
 
 public class FileUtils {
 
+    /**
+     * File Utility to help file operations like create and delete
+     */
     public static void createFile(String filePath, String fileContent) throws Exception {
-        File f = new File(filePath);
-        if(!f.exists() || f.isDirectory()) {
+        File file = new File(filePath);
+        if(!file.exists() || file.isDirectory()) {
+            String directoryPath = filePath.substring(0, filePath.lastIndexOf(File.separator));
+            File directory = new File(directoryPath);
+            boolean bool = directory.mkdirs();
             FileWriter myWriter = new FileWriter(filePath);
             myWriter.write(fileContent);
             myWriter.close();
