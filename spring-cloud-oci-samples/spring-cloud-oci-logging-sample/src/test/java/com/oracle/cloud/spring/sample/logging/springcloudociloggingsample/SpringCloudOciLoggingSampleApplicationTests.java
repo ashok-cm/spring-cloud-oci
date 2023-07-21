@@ -6,7 +6,9 @@
 package com.oracle.cloud.spring.sample.logging.springcloudociloggingsample;
 
 import com.oracle.bmc.loggingingestion.responses.PutLogsResponse;
+import com.oracle.cloud.spring.core.util.FileUtils;
 import com.oracle.cloud.spring.logging.Logging;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
@@ -27,14 +29,8 @@ class SpringCloudOciLoggingSampleApplicationTests {
 	@BeforeAll
 	static void beforeAll() throws Exception {
 		String privateKeyFilePath = System.getenv().get("privateKey");
-		File f = new File(privateKeyFilePath);
-
-		if(!f.exists() || f.isDirectory()) {
-			FileWriter myWriter = new FileWriter(privateKeyFilePath);
-			String privateKeyContent = System.getenv().get("privateKeyContent");
-			myWriter.write(privateKeyContent);
-			myWriter.close();
-		}
+		String privateKeyContent = System.getenv().get("privateKeyContent");
+		FileUtils.createFile(privateKeyFilePath, privateKeyContent);
 	}
 
 	@Autowired
@@ -47,4 +43,9 @@ class SpringCloudOciLoggingSampleApplicationTests {
 		Assert.notNull(response.getOpcRequestId());
 	}
 
+	@AfterAll
+	static void AfterAll() throws Exception {
+		String privateKeyFilePath = System.getenv().get("privateKey");
+		FileUtils.deleteFile(privateKeyFilePath);
+	}
 }

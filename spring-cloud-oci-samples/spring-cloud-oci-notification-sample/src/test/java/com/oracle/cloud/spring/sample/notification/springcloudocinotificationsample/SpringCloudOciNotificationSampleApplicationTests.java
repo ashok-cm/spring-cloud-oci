@@ -15,7 +15,9 @@ import com.oracle.bmc.ons.responses.CreateSubscriptionResponse;
 import com.oracle.bmc.ons.responses.CreateTopicResponse;
 import com.oracle.bmc.ons.responses.DeleteTopicResponse;
 import com.oracle.bmc.ons.responses.PublishMessageResponse;
+import com.oracle.cloud.spring.core.util.FileUtils;
 import com.oracle.cloud.spring.notification.Notification;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
@@ -37,15 +39,10 @@ class SpringCloudOciNotificationSampleApplicationTests {
 	@BeforeAll
 	static void beforeAll() throws Exception {
 		String privateKeyFilePath = System.getenv().get("privateKey");
-		File f = new File(privateKeyFilePath);
-
-		if(!f.exists() || f.isDirectory()) {
-			FileWriter myWriter = new FileWriter(privateKeyFilePath);
-			String privateKeyContent = System.getenv().get("privateKeyContent");
-			myWriter.write(privateKeyContent);
-			myWriter.close();
-		}
+		String privateKeyContent = System.getenv().get("privateKeyContent");
+		FileUtils.createFile(privateKeyFilePath, privateKeyContent);
 	}
+
 	@Autowired
 	Notification notification;
 
@@ -108,5 +105,11 @@ class SpringCloudOciNotificationSampleApplicationTests {
 		NotificationControlPlane controlPlane = notification.getNotificationControlPlaneClient();
 		DeleteTopicResponse response = controlPlane.deleteTopic(request);
 		Assert.notNull(response.getOpcRequestId());
+	}
+
+	@AfterAll
+	static void AfterAll() throws Exception {
+		String privateKeyFilePath = System.getenv().get("privateKey");
+		FileUtils.deleteFile(privateKeyFilePath);
 	}
 }
