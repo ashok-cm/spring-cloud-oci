@@ -27,10 +27,13 @@ import org.springframework.util.Assert;
 @TestPropertySource(locations="classpath:application-test.properties")
 class SpringCloudOciLoggingSampleApplicationTests {
 
-	static String privateKeyFilePath = System.getProperty("privateKey") != null ? System.getProperty("privateKey") :
-			System.getenv().get("privateKey");
-	static String privateKeyContent = System.getProperty("privateKeyContent") != null ? System.getProperty("privateKeyContent") :
-			System.getenv().get("privateKeyContent");
+	public static final String PRIVATE_KEY_PATH = "privateKey";
+	public static final String PRIVATE_KEY_CONTENT = "privateKeyContent";
+
+	public static final String privateKeyFilePath = System.getProperty(PRIVATE_KEY_PATH) != null ? System.getProperty(PRIVATE_KEY_PATH) :
+			System.getenv().get(PRIVATE_KEY_PATH);
+	public static final String privateKeyContent = System.getProperty(PRIVATE_KEY_CONTENT) != null ? System.getProperty(PRIVATE_KEY_CONTENT) :
+			System.getenv().get(PRIVATE_KEY_CONTENT);
 	@BeforeAll
 	static void beforeAll() {
 		try {

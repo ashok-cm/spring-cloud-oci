@@ -39,11 +39,13 @@ import java.util.List;
 @EnabledIfSystemProperty(named = "it.notification", matches = "true")
 @TestPropertySource(locations="classpath:application-test.properties")
 class SpringCloudOciNotificationSampleApplicationTests {
+	public static final String PRIVATE_KEY_PATH = "privateKey";
+	public static final String PRIVATE_KEY_CONTENT = "privateKeyContent";
 
-	static String privateKeyFilePath = System.getProperty("privateKey") != null ? System.getProperty("privateKey") :
-			System.getenv().get("privateKey");
-	static String privateKeyContent = System.getProperty("privateKeyContent") != null ? System.getProperty("privateKeyContent") :
-			System.getenv().get("privateKeyContent");
+	public static final String privateKeyFilePath = System.getProperty(PRIVATE_KEY_PATH) != null ? System.getProperty(PRIVATE_KEY_PATH) :
+			System.getenv().get(PRIVATE_KEY_PATH);
+	public static final String privateKeyContent = System.getProperty(PRIVATE_KEY_CONTENT) != null ? System.getProperty(PRIVATE_KEY_CONTENT) :
+			System.getenv().get(PRIVATE_KEY_CONTENT);
 	@BeforeAll
 	static void beforeAll() throws Exception {
 		FileUtils.createFile(privateKeyFilePath, privateKeyContent.replace("\\n", "\n"));
