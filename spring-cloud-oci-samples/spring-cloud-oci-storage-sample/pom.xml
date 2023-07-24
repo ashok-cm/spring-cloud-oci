@@ -13,10 +13,10 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
         <version>1.0-SNAPSHOT</version>
 <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
-    <groupId>com.oracle.cloud.spring.sample.s3</groupId>
-    <artifactId>spring-cloud-oci-s3-sample</artifactId>
-    <name>spring-cloud-oci-s3-sample</name>
-    <description>spring-cloud-oci-s3-sample</description>
+    <groupId>com.oracle.cloud.spring.sample.storage</groupId>
+    <artifactId>spring-cloud-oci-storage-sample</artifactId>
+    <name>spring-cloud-oci-storage-sample</name>
+    <description>spring-cloud-oci-storage-sample</description>
     <licenses>
         <license>
             <name>The Universal Permissive License (UPL), Version 1.0</name>
