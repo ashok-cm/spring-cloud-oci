@@ -6,9 +6,11 @@
 package com.oracle.cloud.spring.sample.s3.springcloudocis3sample;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
+/** @EnabledIfSystemProperty(named = "it.storage", matches = "true") **/
 class SpringCloudOciS3SampleApplicationTests {
 
     @Test

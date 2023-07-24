@@ -7,11 +7,9 @@ package com.oracle.cloud.spring.sample.email;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-/** @EnabledIfSystemProperty(named = "it.email", matches = "true") **/
 class SpringCloudOciEmailSampleApplicationTests {
 
     @BeforeAll
