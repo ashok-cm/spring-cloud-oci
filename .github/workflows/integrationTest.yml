@@ -37,7 +37,7 @@ jobs:
           echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: Run Maven Build and Test
         run: |
-          mvn test \
+          mvn clean \
             -Pspring-cloud-oci-ci-it \
             -DuserId=${{ secrets.userId }} \
             -DtenantId=${{ secrets.tenantId }} \
@@ -48,4 +48,5 @@ jobs:
             -DtopicName=${{ env.topicName }} \
             -DcompartmentId=${{ secrets.compartmentId }} \
             -Dit.logging=${{ env.it_logging }} \
-            -DlogId=${{ env.logId }}
+            -DlogId=${{ env.logId }} \
+            install
