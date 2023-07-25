@@ -34,8 +34,8 @@ jobs:
           git config user.name "jjeewan"
           echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: Set up Maven
-          uses: stCarolas/setup-maven@v4.5
-          with:
+        uses: stCarolas/setup-maven@v4.5
+        with:
             maven-version: 3.8.2
       - name: Run Maven Build and Test
         run: |
