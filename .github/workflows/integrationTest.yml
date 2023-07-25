@@ -20,7 +20,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Setup Java 17
@@ -37,7 +37,7 @@ jobs:
           echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: Run Maven Build and Test
         run: |
-          mvn clean \
+          mvn test \
             -Pspring-cloud-oci-ci-it \
             -DuserId=${{ secrets.userId }} \
             -DtenantId=${{ secrets.tenantId }} \
@@ -48,5 +48,4 @@ jobs:
             -DtopicName=${{ env.topicName }} \
             -DcompartmentId=${{ secrets.compartmentId }} \
             -Dit.logging=${{ env.it_logging }} \
-            -DlogId=${{ env.logId }} \
-            install
+            -DlogId=${{ env.logId }}
