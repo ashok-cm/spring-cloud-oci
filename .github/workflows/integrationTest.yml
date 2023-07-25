@@ -3,7 +3,7 @@
 name: Run the Integration Tests for Spring Cloud OCI
 
 on:
-  [push, pull_request]:
+  push:
     branches: [ main, topic_jjyoti_* ]
   workflow_dispatch:
     inputs:
