@@ -36,7 +36,7 @@ jobs:
       - name: Set up Maven
           uses: stCarolas/setup-maven@v4.5
           with:
-            maven-version: 3.9.3
+            maven-version: 3.8.2
       - name: Run Maven Build and Test
         run: |
           mvn clean \
