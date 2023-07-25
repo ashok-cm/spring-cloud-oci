@@ -5,6 +5,8 @@ name: Run the Integration Tests for Spring Cloud OCI
 on:
   push:
     branches: [ main, topic_jjyoti_* ]
+  pull_request:
+    branches: [ $default-branch ]  
   workflow_dispatch:
     inputs:
       releaseVersion:
@@ -18,7 +20,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - name: Setup Java 17
@@ -33,10 +35,6 @@ jobs:
           git config user.email "jeewan.jyoti@oracle.com"
           git config user.name "jjeewan"
           echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-      - name: Set up Maven
-        uses: stCarolas/setup-maven@v4.5
-        with:
-            maven-version: 3.8.2
       - name: Run Maven Build and Test
         run: |
           mvn clean \
