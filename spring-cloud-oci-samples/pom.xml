@@ -22,6 +22,7 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
         </license>
     </licenses>
     <modules>
+        <module>spring-cloud-oci-common-sample</module>
         <module>spring-cloud-oci-storage-sample</module>
         <module>spring-cloud-oci-email-sample</module>
         <module>spring-cloud-oci-notification-sample</module>
@@ -40,4 +41,11 @@ Licensed under the Universal Permissive License v 1.0 as shown at https://oss.or
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
+    <profiles>
+        <profile>
+            <id>spring-cloud-oci-ci-it</id>
+        </profile>
+    </profiles>
 </project>

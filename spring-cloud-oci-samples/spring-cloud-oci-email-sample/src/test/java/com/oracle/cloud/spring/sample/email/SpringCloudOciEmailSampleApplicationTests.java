@@ -20,6 +20,7 @@ class SpringCloudOciEmailSampleApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }

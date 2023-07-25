@@ -12,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 /** @EnabledIfSystemProperty(named = "it.storage", matches = "true") **/
 class SpringCloudOciStorageSampleApplicationTests {
-
     @Test
     void contextLoads() {
     }
