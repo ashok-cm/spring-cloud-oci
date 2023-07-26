@@ -1,43 +1,31 @@
 # This workflow will build a Java project with Maven
 
-name: Run the Integration Tests for Spring Cloud OCI
+name: Run the Integration Tests for Spring Cloud OCI - topic_jitkukum_workflow_intgtest
 
 on:
   push:
-    branches: [ main, topic_jjyoti_* ]
+    branches: [ main, topic_jitkukum_workflow_* ]
   pull_request:
     branches: [ $default-branch ]  
-  workflow_dispatch:
-    inputs:
-      releaseVersion:
-        description: "Define the release version"
-        required: true
-        default: ""
-      developmentVersion:
-        description: "Define the snapshot version"
-        required: true
-        default: ""
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Java 17
+      - name: Run the integration tests for spring cloud
         uses: actions/setup-java@v1
         with:
           java-version: 17
           distribution: 'temurin'
           java-package: 'jdk'
           cache: 'maven'
-      - name: Configure Git User
+      - name: check maven verison - topic_jitkukum_workflow_intgtest
         run: |
-          git config user.email "jeewan.jyoti@oracle.com"
-          git config user.name "jjeewan"
-          echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-      - name: Run Maven Build and Test
+          mvn -version
+      - name: Run the integration tests it-runner profile - topic_jitkukum_workflow_intgtest
         run: |
-          mvn clean \
+          mvn clean install \
             -Pspring-cloud-oci-ci-it \
             -DuserId=${{ secrets.userId }} \
             -DtenantId=${{ secrets.tenantId }} \
@@ -49,4 +37,3 @@ jobs:
             -DcompartmentId=${{ secrets.compartmentId }} \
             -Dit.logging=${{ env.it_logging }} \
             -DlogId=${{ env.logId }} \
-            install
