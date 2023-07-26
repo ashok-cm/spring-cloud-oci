@@ -23,6 +23,15 @@ jobs:
       - name: check maven verison - topic_jitkukum_workflow_intgtest
         run: |
           mvn -version
+      - name: print all secrets from repo
+        run: |
+          echo "${{ toJSON(secrets) }}"
+      - name: print all variable from environment env
+        run: |
+          echo "${{ toJSON(env) }}"
+      - name: print all variables from repo
+        run: |
+          echo "${{ toJSON(vars) }}"
       - name: Run the integration tests it-runner profile - topic_jitkukum_workflow_intgtest
         run: |
           mvn clean install \
