@@ -17,9 +17,9 @@ All Spring Cloud for OCI artifacts are made available through Maven Central. Dev
 
 This project has dependency and transitive dependencies on Spring Projects. The table below outlines the versions of Spring Cloud, Spring Boot and Spring Framework versions that are compatible with certain Spring Cloud OCI version.
 
-| Spring Cloud OCI  | Spring Cloud    | Spring Boot         | Spring Framework | OCI Java SDK |
-|-------------------|-----------------|---------------------|------------------|--------------|
-| 1.0.0  	        | <to-be-checked> | 2.7.x, 3.0.x, 3.1.x | 5.3.23           | 3.19.0       |
+| Spring Cloud OCI  | Spring Cloud    | Spring Boot         | OCI Java SDK |
+|-------------------|-----------------|---------------------|--------------|
+| 1.0.0  	        | <to-be-checked> | 2.7.x, 3.0.x, 3.1.x  |  3.19.0      |
 
 
 ## Try out samples
