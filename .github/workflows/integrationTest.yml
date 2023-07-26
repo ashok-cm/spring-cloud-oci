@@ -26,7 +26,6 @@ jobs:
       - name: Run the integration tests it-runner profile - topic_jitkukum_workflow_intgtest
         run: |
           mvn clean install \
-            -Pspring-cloud-oci-ci-it \
             -DuserId=${{ secrets.userId }} \
             -DtenantId=${{ secrets.tenantId }} \
             -Dfingerprint=${{ secrets.fingerprint }} \
