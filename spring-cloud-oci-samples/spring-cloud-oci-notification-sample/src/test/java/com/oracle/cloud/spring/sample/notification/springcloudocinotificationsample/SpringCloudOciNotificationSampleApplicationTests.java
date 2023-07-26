@@ -58,7 +58,8 @@ class SpringCloudOciNotificationSampleApplicationTests extends SpringCloudSample
 	}
 
 	private String testCreateTopic() {
-		CreateTopicResponse response = notification.createTopic(topicName, compartmentId);
+		long time = System.currentTimeMillis();
+		CreateTopicResponse response = notification.createTopic(topicName + time, compartmentId);
 		String topicOcid = response.getNotificationTopic().getTopicId();
 		Assert.notNull(topicOcid);
 		return topicOcid;
