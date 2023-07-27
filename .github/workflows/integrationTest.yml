@@ -49,4 +49,6 @@ jobs:
             -DcompartmentId=${{ secrets.compartmentId }} \
             -Dit.logging=${{ env.it_logging }} \
             -DlogId=${{ env.logId }} \
+            -Dit.storage=${{ env.it_storage }} \
+            -DbucketName=${{ env.bucketName }} \
             install
