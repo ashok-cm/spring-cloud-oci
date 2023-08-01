@@ -30,7 +30,7 @@ import java.io.IOException;
 @EnableConfigurationProperties(CredentialsProperties.class)
 public class CredentialsProviderAutoConfiguration {
 
-    public static final String SPRING_CLOUD_CLIENT_USER_AGENT = "Oracle-SpringCloud";
+    public static final String USER_AGENT_SPRING_CLOUD = "Oracle-SpringCloud";
 
     public static final String credentialsProviderQualifier = "credentialsProvider";
 
@@ -85,7 +85,7 @@ public class CredentialsProviderAutoConfiguration {
 
                 break;
         }
-        ClientRuntime.setClientUserAgent(SPRING_CLOUD_CLIENT_USER_AGENT);
+        ClientRuntime.setClientUserAgent(USER_AGENT_SPRING_CLOUD);
         return authenticationDetailsProvider;
     }
 
