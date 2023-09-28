@@ -1,0 +1,3 @@
+com.example.configrefreshsample.core.RegionProviderAutoConfiguration
+com.example.configrefreshsample.core.CredentialsProviderAutoConfiguration
+com.example.configrefreshsample.core.NotificationAutoConfiguration

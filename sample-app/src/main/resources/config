@@ -1,0 +1,6 @@
+[DEFAULT]
+user = user_ocid
+fingerprint = 1234
+key_file = ~/private_key.pem
+tenancy = tenancy_ocid
+region = us-ashburn-1
